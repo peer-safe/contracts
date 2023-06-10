@@ -16,8 +16,11 @@ module.exports = async function(deployer, network, accounts) {
   const s = recovered.s;
   const v = recovered.v;
 
-  const old = new PeerSafeDeployer(OLD_ADDRESS);
   await deployer.deploy(PeerSafeDeployer);
+  if (!OLD_ADDRESS) {
+    return
+  }
+  const old = new PeerSafeDeployer(OLD_ADDRESS);
   if (!old) {
     return
   }
