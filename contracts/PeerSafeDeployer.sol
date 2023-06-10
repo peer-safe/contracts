@@ -14,10 +14,10 @@ contract PeerSafeDeployer is Ownable {
 
     function getVault(address _vaultOwner) external view returns(address) {
         Vault _v = vaults[_vaultOwner];
-        if (_v.getOwner() == _vaultOwner) {
-            return address(_v);
-        }
-        revert("ERR691: vault doesn't exist");
+        // if (_v.getOwner() == _vaultOwner) {
+        return address(_v);
+        // }
+        // revert("ERR691: vault doesn't exist");
     }
 
     function deploy(string memory _userName, bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s) external returns(address) {
