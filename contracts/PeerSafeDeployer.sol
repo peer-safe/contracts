@@ -15,6 +15,7 @@ contract PeerSafeDeployer is Ownable {
     function getVault(address _vaultOwner) external view returns(address) {
         Vault _v = vaults[_vaultOwner];
         // if (_v.getOwner() == _vaultOwner) {
+        require(address(_v) != address(0), "does not exist");
         return address(_v);
         // }
         // revert("ERR691: vault doesn't exist");
