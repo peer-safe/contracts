@@ -37,7 +37,7 @@ contract Vault is Ownable {
     }
 
     function deleteFile(uint256 index) external onlyOwnerOrCreator {
-        require( index >= files.length );
+        require( index < files.length, "index out of bounds" );
         files[index] = files[files.length-1];
         files.pop();
     }
