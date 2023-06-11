@@ -24,6 +24,7 @@ contract Vault is Ownable {
         return files;
     }
 
+    event FileCreated();
     function createFile(string memory name, string memory fileType, string memory ipfsHash, string memory key) external onlyOwnerOrCreator {
         File memory f = File(
            {
@@ -34,19 +35,24 @@ contract Vault is Ownable {
            }
         );
         files.push(f);
+        emit FileCreated();
     }
 
+    event FileDeleted();
     function deleteFile(uint256 index) external onlyOwnerOrCreator {
         require( index < files.length, "index out of bounds" );
         files[index] = files[files.length-1];
         files.pop();
+        emit FileDeleted();
     }
 
+    event FilesImported();
     function migrateFiles(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, File[] memory _files) public{
         address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
         require(signer == owner || signer == creator, 'neither owner nor creator');
         for (uint i = 0; i < _files.length; i++ ){
             files.push(_files[i]);
         }
+        emit FilesImported();
     }
 }
