@@ -13,19 +13,32 @@ struct File {
     string _key;
 }
 
+struct Directory {
+    string _name;
+    File[] _files;
+    mapping (string => Directory) _directories;
+    string[] _directoryNames;
+}
+
 contract Vault is Ownable {
     string public user;
-    File[] files;
+    mapping (uint => Directory) public root;
     constructor(address _owner, string memory _userName ) Ownable(msg.sender, _owner) {
         user = _userName;
+        // mapping(string => Directory) storage _directories;
+        root[0]._name = "root";
     }
 
-    function getAllFiles() external view returns(File[] memory) {
-        return files;
+    function findDirectory(string[] memory directories, bool createIfNotExists) internal returns(Directory storage) {
+        Directory storage currentDirectory = root[0];
+        for (uint i = 0; i < directories.length; i++) {
+            currentDirectory = currentDirectory._directories[directories[i]];
+        }
+        return currentDirectory;
     }
 
     event FileCreated();
-    function createFile(string memory name, string memory fileType, string memory ipfsHash, string memory key) external onlyOwnerOrCreator {
+    function createFile(string[] memory directory, string memory name, string memory fileType, string memory ipfsHash, string memory key) external onlyOwnerOrCreator {
         File memory f = File(
            {
             _name: name,
@@ -34,25 +47,24 @@ contract Vault is Ownable {
             _key: key
            }
         );
-        files.push(f);
+        findDirectory(directory, true)._files.push(f);
         emit FileCreated();
     }
 
     event FileDeleted();
-    function deleteFile(uint256 index) external onlyOwnerOrCreator {
-        require( index < files.length, "index out of bounds" );
-        files[index] = files[files.length-1];
-        files.pop();
+    function deleteFile(string[] memory directory, uint256 index) external onlyOwnerOrCreator {
+        Directory storage d = findDirectory(directory, false);
+        require( index < d._files.length, "index out of bounds" );
+        d._files[index] = d._files[d._files.length-1];
+        d._files.pop();
         emit FileDeleted();
     }
 
-    event FilesImported();
-    function migrateFiles(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, File[] memory _files) public{
-        address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
-        require(signer == owner || signer == creator, 'neither owner nor creator');
-        for (uint i = 0; i < _files.length; i++ ){
-            files.push(_files[i]);
-        }
-        emit FilesImported();
-    }
+//     event FilesImported();
+//     function migrateFiles(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, Directory memory _directory) public{
+//         address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
+//         require(signer == owner || signer == creator, 'neither owner nor creator');
+//         root = _directory;
+//         emit FilesImported();
+//     }
 }
