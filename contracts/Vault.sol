@@ -15,13 +15,18 @@ struct File {
 
 contract Vault is Ownable {
     string public user;
-    File[] files;
+    mapping(string => File) files;
+    string[] filesKeys;
     constructor(address _owner, string memory _userName ) Ownable(msg.sender, _owner) {
         user = _userName;
     }
 
     function getAllFiles() external view returns(File[] memory) {
-        return files;
+        File[] memory _files;
+        for (uint i = 0; i < filesKeys.length; i++) {
+            _files[i] = files[filesKeys[i]];
+        }
+        return _files;
     }
 
     event FileCreated();
@@ -34,15 +39,22 @@ contract Vault is Ownable {
             _key: key
            }
         );
-        files.push(f);
+        files[ipfsHash] = f;
+        filesKeys.push(ipfsHash);
         emit FileCreated();
     }
 
     event FileDeleted();
-    function deleteFile(uint256 index) external onlyOwnerOrCreator {
-        require( index < files.length, "index out of bounds" );
-        files[index] = files[files.length-1];
-        files.pop();
+    function deleteFile(string memory ipfsHash) external onlyOwnerOrCreator {
+        require(abi.encodePacked(files[ipfsHash]._ipfsHash).length > 0, "index out of bounds" );
+        delete files[ipfsHash];
+        for (uint i = 0; i < filesKeys.length; i++) {
+            if (keccak256(abi.encodePacked(filesKeys[i])) == keccak256(abi.encodePacked(ipfsHash))) {
+                // delete filesKeys[i];
+                filesKeys[i] = filesKeys[filesKeys.length-1];
+                filesKeys.pop();
+            }
+        }
         emit FileDeleted();
     }
 
@@ -51,7 +63,8 @@ contract Vault is Ownable {
         address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
         require(signer == owner || signer == creator, 'neither owner nor creator');
         for (uint i = 0; i < _files.length; i++ ){
-            files.push(_files[i]);
+            files[_files[i]._ipfsHash] = _files[i];
+            filesKeys.push(_files[i]._ipfsHash);
         }
         emit FilesImported();
     }

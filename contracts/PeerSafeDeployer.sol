@@ -40,10 +40,10 @@ contract PeerSafeDeployer is Ownable {
         return _vault.getAllFiles();
     }
 
-    function deleteFile(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, uint256 index) external {
+    function deleteFile(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, string memory ipfsHash) external {
         address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
         Vault _vault = vaults[signer];
-        return _vault.deleteFile(index);
+        return _vault.deleteFile(ipfsHash);
     }
 
     function adminAllVaults() external view onlyOwnerOrCreator returns(address[] memory, Vault[] memory) {
