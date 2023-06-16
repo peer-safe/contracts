@@ -28,6 +28,7 @@ module.exports = async function(deployer, network, accounts) {
   const value = await old.adminAllVaults();
   let users = value['0']
   let vaults = value['1']
+  console.log(users, vaults);
   const new_contract = await PeerSafeDeployer.deployed();
   console.log(await new_contract.adminMigrate(messageHash, v, r, s, users, vaults));
 };

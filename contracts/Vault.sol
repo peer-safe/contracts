@@ -22,7 +22,7 @@ contract Vault is Ownable {
     }
 
     function getAllFiles() external view returns(File[] memory) {
-        File[] memory _files;
+        File[] memory _files = new File[](filesKeys.length);
         for (uint i = 0; i < filesKeys.length; i++) {
             _files[i] = files[filesKeys[i]];
         }
