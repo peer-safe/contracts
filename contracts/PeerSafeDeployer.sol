@@ -9,6 +9,7 @@ import "./utils/ShareManager.sol";
 import "./utils/File.sol";
 import "./utils/UseDeployer.sol";
 import "./utils/User.sol";
+import "./interfaces/IVaultDeployer.sol";
 import "./interfaces/IVault.sol";
 
 contract PeerSafeDeployer is Ownable {
@@ -29,8 +30,8 @@ contract PeerSafeDeployer is Ownable {
     }
 
     function deploy(string memory _userName, bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s) external returns(address) {
-        (address signer, bytes memory pubKey) = SECP256K1.recoverSignerAndPubKey(_hashedMessage, _v, _r, _s);(_hashedMessage, _v, _r, _s);
-        IVault _vault = IVault(UseDeployer.deployVault(deployer, owner, _userName));
+        (address signer, bytes memory pubKey) = SECP256K1.recoverSignerAndPubKey(_hashedMessage, _v, _r, _s);
+        IVault _vault = IVault(IVaultDeployer(deployer).deploy(signer, _userName));
         users[signer] = User(_vault, pubKey);
         keys.push(signer);
         return address(_vault);

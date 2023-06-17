@@ -186,18 +186,18 @@
     "absolutePath": "project:/contracts/interfaces/IVault.sol",
     "exportedSymbols": {
       "File": [
-        756
+        767
       ],
       "IVault": [
-        745
+        744
       ]
     },
-    "id": 746,
+    "id": 745,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 690,
+        "id": 689,
         "literals": [
           "solidity",
           "^",
@@ -210,10 +210,10 @@
       {
         "absolutePath": "project:/contracts/utils/File.sol",
         "file": "../utils/File.sol",
-        "id": 691,
+        "id": 690,
         "nodeType": "ImportDirective",
-        "scope": 746,
-        "sourceUnit": 757,
+        "scope": 745,
+        "sourceUnit": 768,
         "src": "64:27:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -224,68 +224,68 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 745,
+        "id": 744,
         "linearizedBaseContracts": [
-          745
+          744
         ],
         "name": "IVault",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "ff24b5d5",
-            "id": 698,
+            "id": 697,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getAllFiles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 692,
+              "id": 691,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "137:2:3"
             },
             "returnParameters": {
-              "id": 697,
+              "id": 696,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 696,
+                  "id": 695,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 698,
+                  "scope": 697,
                   "src": "162:13:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_File_$756_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_File_$767_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct File[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 694,
+                      "id": 693,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 693,
+                        "id": 692,
                         "name": "File",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 756,
+                        "referencedDeclaration": 767,
                         "src": "162:4:3"
                       },
-                      "referencedDeclaration": 756,
+                      "referencedDeclaration": 767,
                       "src": "162:4:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$756_storage_ptr",
+                        "typeIdentifier": "t_struct$_File_$767_storage_ptr",
                         "typeString": "struct File"
                       }
                     },
-                    "id": 695,
+                    "id": 694,
                     "nodeType": "ArrayTypeName",
                     "src": "162:6:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$756_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$767_storage_$dyn_storage_ptr",
                       "typeString": "struct File[]"
                     }
                   },
@@ -294,7 +294,7 @@
               ],
               "src": "161:15:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "117:60:3",
             "stateMutability": "view",
             "virtual": false,
@@ -302,23 +302,23 @@
           },
           {
             "functionSelector": "d590e7ef",
-            "id": 709,
+            "id": 708,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createFile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 707,
+              "id": 706,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 700,
+                  "id": 699,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 709,
+                  "scope": 708,
                   "src": "202:18:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -327,7 +327,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 699,
+                    "id": 698,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "202:6:3",
@@ -340,11 +340,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 702,
+                  "id": 701,
                   "mutability": "mutable",
                   "name": "fileType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 709,
+                  "scope": 708,
                   "src": "222:22:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -353,7 +353,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 701,
+                    "id": 700,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "222:6:3",
@@ -366,11 +366,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 704,
+                  "id": 703,
                   "mutability": "mutable",
                   "name": "ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 709,
+                  "scope": 708,
                   "src": "246:22:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -379,7 +379,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 703,
+                    "id": 702,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "246:6:3",
@@ -392,11 +392,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 706,
+                  "id": 705,
                   "mutability": "mutable",
                   "name": "key",
                   "nodeType": "VariableDeclaration",
-                  "scope": 709,
+                  "scope": 708,
                   "src": "270:17:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -405,7 +405,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 705,
+                    "id": 704,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "270:6:3",
@@ -420,12 +420,12 @@
               "src": "201:87:3"
             },
             "returnParameters": {
-              "id": 708,
+              "id": 707,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "297:0:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "182:116:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -433,23 +433,23 @@
           },
           {
             "functionSelector": "a9910054",
-            "id": 714,
+            "id": 713,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "deleteFile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 712,
+              "id": 711,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 711,
+                  "id": 710,
                   "mutability": "mutable",
                   "name": "ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 714,
+                  "scope": 713,
                   "src": "323:22:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -458,7 +458,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 710,
+                    "id": 709,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "323:6:3",
@@ -473,12 +473,12 @@
               "src": "322:24:3"
             },
             "returnParameters": {
-              "id": 713,
+              "id": 712,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "355:0:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "303:53:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -486,23 +486,23 @@
           },
           {
             "functionSelector": "1dd09eb0",
-            "id": 729,
+            "id": 728,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "migrateFiles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 727,
+              "id": 726,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 716,
+                  "id": 715,
                   "mutability": "mutable",
                   "name": "_hashedMessage",
                   "nodeType": "VariableDeclaration",
-                  "scope": 729,
+                  "scope": 728,
                   "src": "383:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -511,7 +511,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 715,
+                    "id": 714,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "383:7:3",
@@ -524,11 +524,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 718,
+                  "id": 717,
                   "mutability": "mutable",
                   "name": "_v",
                   "nodeType": "VariableDeclaration",
-                  "scope": 729,
+                  "scope": 728,
                   "src": "407:8:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -537,7 +537,7 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 717,
+                    "id": 716,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
                     "src": "407:5:3",
@@ -550,11 +550,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 720,
+                  "id": 719,
                   "mutability": "mutable",
                   "name": "_r",
                   "nodeType": "VariableDeclaration",
-                  "scope": 729,
+                  "scope": 728,
                   "src": "417:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -563,7 +563,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 719,
+                    "id": 718,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "417:7:3",
@@ -576,11 +576,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 722,
+                  "id": 721,
                   "mutability": "mutable",
                   "name": "_s",
                   "nodeType": "VariableDeclaration",
-                  "scope": 729,
+                  "scope": 728,
                   "src": "429:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -589,7 +589,7 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 721,
+                    "id": 720,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
                     "src": "429:7:3",
@@ -602,41 +602,41 @@
                 },
                 {
                   "constant": false,
-                  "id": 726,
+                  "id": 725,
                   "mutability": "mutable",
                   "name": "_files",
                   "nodeType": "VariableDeclaration",
-                  "scope": 729,
+                  "scope": 728,
                   "src": "441:20:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_File_$756_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_File_$767_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct File[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 724,
+                      "id": 723,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 723,
+                        "id": 722,
                         "name": "File",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 756,
+                        "referencedDeclaration": 767,
                         "src": "441:4:3"
                       },
-                      "referencedDeclaration": 756,
+                      "referencedDeclaration": 767,
                       "src": "441:4:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$756_storage_ptr",
+                        "typeIdentifier": "t_struct$_File_$767_storage_ptr",
                         "typeString": "struct File"
                       }
                     },
-                    "id": 725,
+                    "id": 724,
                     "nodeType": "ArrayTypeName",
                     "src": "441:6:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$756_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$767_storage_$dyn_storage_ptr",
                       "typeString": "struct File[]"
                     }
                   },
@@ -646,12 +646,12 @@
               "src": "382:80:3"
             },
             "returnParameters": {
-              "id": 728,
+              "id": 727,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "471:0:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "361:111:3",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -659,29 +659,29 @@
           },
           {
             "functionSelector": "893d20e8",
-            "id": 734,
+            "id": 733,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getOwner",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 730,
+              "id": 729,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "494:2:3"
             },
             "returnParameters": {
-              "id": 733,
+              "id": 732,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 732,
+                  "id": 731,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 734,
+                  "scope": 733,
                   "src": "520:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -690,7 +690,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 731,
+                    "id": 730,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "520:7:3",
@@ -705,7 +705,7 @@
               ],
               "src": "519:9:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "477:52:3",
             "stateMutability": "view",
             "virtual": false,
@@ -713,29 +713,29 @@
           },
           {
             "functionSelector": "0ee2cb10",
-            "id": 739,
+            "id": 738,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCreator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 735,
+              "id": 734,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "553:2:3"
             },
             "returnParameters": {
-              "id": 738,
+              "id": 737,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 737,
+                  "id": 736,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 739,
+                  "scope": 738,
                   "src": "579:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -744,7 +744,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 736,
+                    "id": 735,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "579:7:3",
@@ -759,7 +759,7 @@
               ],
               "src": "578:9:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "534:54:3",
             "stateMutability": "view",
             "virtual": false,
@@ -767,29 +767,29 @@
           },
           {
             "functionSelector": "832880e7",
-            "id": 744,
+            "id": 743,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getUser",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 740,
+              "id": 739,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "609:2:3"
             },
             "returnParameters": {
-              "id": 743,
+              "id": 742,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 742,
+                  "id": 741,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 744,
+                  "scope": 743,
                   "src": "634:13:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -798,7 +798,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 741,
+                    "id": 740,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "634:6:3",
@@ -812,14 +812,14 @@
               ],
               "src": "633:15:3"
             },
-            "scope": 745,
+            "scope": 744,
             "src": "593:56:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 746,
+        "scope": 745,
         "src": "94:557:3"
       }
     ],
@@ -831,7 +831,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.14",
-  "updatedAt": "2023-06-17T02:24:03.768Z",
+  "updatedAt": "2023-06-17T02:59:53.993Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

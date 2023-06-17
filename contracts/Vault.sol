@@ -12,7 +12,7 @@ contract Vault is Ownable {
     using FileManager for Files;
     Files files;
 
-    constructor(address _owner, string memory _userName ) Ownable(msg.sender, _owner) {
+    constructor(address _creator, address _owner, string memory _userName ) Ownable(_creator, _owner) {
         user = _userName;
     }
 
