@@ -1,0 +1,2741 @@
+{
+  "contractName": "ShareManager",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/utils/ShareManager.sol\":\"ShareManager\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/utils/ShareManager.sol\":{\"keccak256\":\"0xfb8b8d13ef3ffb343e95798b628454a3cb1285ad640ec7530ed0f2da7bd7b9cf\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://fbc5f2263f0719be45b1932f4ebc2abc3b06eb0d2a2c4767adb1082376d59402\",\"dweb:/ipfs/QmcqE3p7aoFQVL2NwVb9WeFHbaTRNYRNJGXwv2wrvmZ83g\"]}},\"version\":1}",
+  "bytecode": "0x60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220110cf00f14756e9106d6c8080f927918a8417422bea95eab128f5ab90c85db3364736f6c63430008000033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220110cf00f14756e9106d6c8080f927918a8417422bea95eab128f5ab90c85db3364736f6c63430008000033",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "330:1504:5:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "330:1504:5:-:0;;;;;;;;",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.0;\n\n\nstruct ShareRequest {\n    address _from;\n    string _fileHash;\n    string _keyHash;\n    string _name;\n    string _fileType;\n}\n\nstruct ShareRequests {\n    mapping(address => mapping(string => ShareRequest)) _shareRequests;\n    mapping(address => string[]) _keys;\n}\n\nlibrary ShareManager {\n    function addShareRequest(ShareRequests storage self, address _from, address _to, string memory _fileHash, string memory _keyHash, string memory _name, string memory _fileType) internal {\n        require(self._shareRequests[_to][_fileHash]._from == address(0), \"SRAExists\");\n        ShareRequest memory _shareRequest = ShareRequest(\n            {\n                _from: _from,\n                _fileHash: _fileHash,\n                _keyHash: _keyHash,\n                _name: _name,\n                _fileType: _fileType\n            }\n        );\n        self._shareRequests[_to][_fileHash] = _shareRequest;\n        self._keys[_to].push(_fileHash);\n    }\n\n    function getShareRequests(ShareRequests storage self) internal view returns(ShareRequest[] memory) {\n        ShareRequest[] memory _shareRequest = new ShareRequest[](self._keys[msg.sender].length);\n        for (uint i = 0; i < self._keys[msg.sender].length; i++) {\n            _shareRequest[i] = self._shareRequests[msg.sender][self._keys[msg.sender][i]];\n        }\n        return _shareRequest;\n    }\n\n    function deleteShareRequest(ShareRequests storage self, address sender, string memory _fileHash) internal {\n        delete self._shareRequests[sender][_fileHash];\n        for (uint i = 0; i < self._keys[sender].length; i++) {\n            if (keccak256(abi.encodePacked(self._keys[sender][i])) == keccak256(abi.encodePacked(_fileHash))) {\n                delete self._keys[sender][i];\n            }\n        }\n    }\n}",
+  "sourcePath": "/Users/shubhaankar/github.com/peer-safe/contracts/contracts/utils/ShareManager.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/utils/ShareManager.sol",
+    "exportedSymbols": {
+      "ShareManager": [
+        2299
+      ],
+      "ShareRequest": [
+        2092
+      ],
+      "ShareRequests": [
+        2105
+      ]
+    },
+    "id": 2300,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 2081,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:23:5"
+      },
+      {
+        "canonicalName": "ShareRequest",
+        "id": 2092,
+        "members": [
+          {
+            "constant": false,
+            "id": 2083,
+            "mutability": "mutable",
+            "name": "_from",
+            "nodeType": "VariableDeclaration",
+            "scope": 2092,
+            "src": "91:13:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_address",
+              "typeString": "address"
+            },
+            "typeName": {
+              "id": 2082,
+              "name": "address",
+              "nodeType": "ElementaryTypeName",
+              "src": "91:7:5",
+              "stateMutability": "nonpayable",
+              "typeDescriptions": {
+                "typeIdentifier": "t_address",
+                "typeString": "address"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 2085,
+            "mutability": "mutable",
+            "name": "_fileHash",
+            "nodeType": "VariableDeclaration",
+            "scope": 2092,
+            "src": "110:16:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 2084,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "110:6:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 2087,
+            "mutability": "mutable",
+            "name": "_keyHash",
+            "nodeType": "VariableDeclaration",
+            "scope": 2092,
+            "src": "132:15:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 2086,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "132:6:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 2089,
+            "mutability": "mutable",
+            "name": "_name",
+            "nodeType": "VariableDeclaration",
+            "scope": 2092,
+            "src": "153:12:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 2088,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "153:6:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 2091,
+            "mutability": "mutable",
+            "name": "_fileType",
+            "nodeType": "VariableDeclaration",
+            "scope": 2092,
+            "src": "171:16:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_storage_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 2090,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "171:6:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "name": "ShareRequest",
+        "nodeType": "StructDefinition",
+        "scope": 2300,
+        "src": "65:125:5",
+        "visibility": "public"
+      },
+      {
+        "canonicalName": "ShareRequests",
+        "id": 2105,
+        "members": [
+          {
+            "constant": false,
+            "id": 2099,
+            "mutability": "mutable",
+            "name": "_shareRequests",
+            "nodeType": "VariableDeclaration",
+            "scope": 2105,
+            "src": "219:66:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$_$",
+              "typeString": "mapping(address => mapping(string => struct ShareRequest))"
+            },
+            "typeName": {
+              "id": 2098,
+              "keyType": {
+                "id": 2093,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "227:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "219:51:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$_$",
+                "typeString": "mapping(address => mapping(string => struct ShareRequest))"
+              },
+              "valueType": {
+                "id": 2097,
+                "keyType": {
+                  "id": 2094,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "246:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "nodeType": "Mapping",
+                "src": "238:31:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$",
+                  "typeString": "mapping(string => struct ShareRequest)"
+                },
+                "valueType": {
+                  "id": 2096,
+                  "nodeType": "UserDefinedTypeName",
+                  "pathNode": {
+                    "id": 2095,
+                    "name": "ShareRequest",
+                    "nodeType": "IdentifierPath",
+                    "referencedDeclaration": 2092,
+                    "src": "256:12:5"
+                  },
+                  "referencedDeclaration": 2092,
+                  "src": "256:12:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ShareRequest_$2092_storage_ptr",
+                    "typeString": "struct ShareRequest"
+                  }
+                }
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 2104,
+            "mutability": "mutable",
+            "name": "_keys",
+            "nodeType": "VariableDeclaration",
+            "scope": 2105,
+            "src": "291:34:5",
+            "stateVariable": false,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+              "typeString": "mapping(address => string[])"
+            },
+            "typeName": {
+              "id": 2103,
+              "keyType": {
+                "id": 2100,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "299:7:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "291:28:5",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                "typeString": "mapping(address => string[])"
+              },
+              "valueType": {
+                "baseType": {
+                  "id": 2101,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "310:6:5",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "id": 2102,
+                "nodeType": "ArrayTypeName",
+                "src": "310:8:5",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_array$_t_string_storage_$dyn_storage_ptr",
+                  "typeString": "string[]"
+                }
+              }
+            },
+            "visibility": "internal"
+          }
+        ],
+        "name": "ShareRequests",
+        "nodeType": "StructDefinition",
+        "scope": 2300,
+        "src": "192:136:5",
+        "visibility": "public"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "fullyImplemented": true,
+        "id": 2299,
+        "linearizedBaseContracts": [
+          2299
+        ],
+        "name": "ShareManager",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": {
+              "id": 2169,
+              "nodeType": "Block",
+              "src": "542:464:5",
+              "statements": [
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "id": 2135,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "expression": {
+                            "baseExpression": {
+                              "baseExpression": {
+                                "expression": {
+                                  "id": 2124,
+                                  "name": "self",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 2108,
+                                  "src": "560:4:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                                    "typeString": "struct ShareRequests storage pointer"
+                                  }
+                                },
+                                "id": 2125,
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "_shareRequests",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 2099,
+                                "src": "560:19:5",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$_$",
+                                  "typeString": "mapping(address => mapping(string memory => struct ShareRequest storage ref))"
+                                }
+                              },
+                              "id": 2127,
+                              "indexExpression": {
+                                "id": 2126,
+                                "name": "_to",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2112,
+                                "src": "580:3:5",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "560:24:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$",
+                                "typeString": "mapping(string memory => struct ShareRequest storage ref)"
+                              }
+                            },
+                            "id": 2129,
+                            "indexExpression": {
+                              "id": 2128,
+                              "name": "_fileHash",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2114,
+                              "src": "585:9:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_memory_ptr",
+                                "typeString": "string memory"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "560:35:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequest_$2092_storage",
+                              "typeString": "struct ShareRequest storage ref"
+                            }
+                          },
+                          "id": 2130,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "_from",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2083,
+                          "src": "560:41:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "==",
+                        "rightExpression": {
+                          "arguments": [
+                            {
+                              "hexValue": "30",
+                              "id": 2133,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "613:1:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              },
+                              "value": "0"
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_rational_0_by_1",
+                                "typeString": "int_const 0"
+                              }
+                            ],
+                            "id": 2132,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "605:7:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_address_$",
+                              "typeString": "type(address)"
+                            },
+                            "typeName": {
+                              "id": 2131,
+                              "name": "address",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "605:7:5",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 2134,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "605:10:5",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "src": "560:55:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        }
+                      },
+                      {
+                        "hexValue": "535241457869737473",
+                        "id": 2136,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": true,
+                        "kind": "string",
+                        "lValueRequested": false,
+                        "nodeType": "Literal",
+                        "src": "617:11:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_stringliteral_744d60961e6dc39b049b57596c203fa719539e2d979b17b719686205cbc7b308",
+                          "typeString": "literal_string \"SRAExists\""
+                        },
+                        "value": "SRAExists"
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        {
+                          "typeIdentifier": "t_stringliteral_744d60961e6dc39b049b57596c203fa719539e2d979b17b719686205cbc7b308",
+                          "typeString": "literal_string \"SRAExists\""
+                        }
+                      ],
+                      "id": 2123,
+                      "name": "require",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [
+                        4294967278,
+                        4294967278
+                      ],
+                      "referencedDeclaration": 4294967278,
+                      "src": "552:7:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                        "typeString": "function (bool,string memory) pure"
+                      }
+                    },
+                    "id": 2137,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "552:77:5",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2138,
+                  "nodeType": "ExpressionStatement",
+                  "src": "552:77:5"
+                },
+                {
+                  "assignments": [
+                    2141
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2141,
+                      "mutability": "mutable",
+                      "name": "_shareRequest",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2169,
+                      "src": "639:33:5",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ShareRequest_$2092_memory_ptr",
+                        "typeString": "struct ShareRequest"
+                      },
+                      "typeName": {
+                        "id": 2140,
+                        "nodeType": "UserDefinedTypeName",
+                        "pathNode": {
+                          "id": 2139,
+                          "name": "ShareRequest",
+                          "nodeType": "IdentifierPath",
+                          "referencedDeclaration": 2092,
+                          "src": "639:12:5"
+                        },
+                        "referencedDeclaration": 2092,
+                        "src": "639:12:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_ShareRequest_$2092_storage_ptr",
+                          "typeString": "struct ShareRequest"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2149,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "id": 2143,
+                        "name": "_from",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2110,
+                        "src": "726:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        }
+                      },
+                      {
+                        "id": 2144,
+                        "name": "_fileHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2114,
+                        "src": "760:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "id": 2145,
+                        "name": "_keyHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2116,
+                        "src": "797:8:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "id": 2146,
+                        "name": "_name",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2118,
+                        "src": "830:5:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      {
+                        "id": 2147,
+                        "name": "_fileType",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2120,
+                        "src": "864:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        },
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "id": 2142,
+                      "name": "ShareRequest",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2092,
+                      "src": "675:12:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_type$_t_struct$_ShareRequest_$2092_storage_ptr_$",
+                        "typeString": "type(struct ShareRequest storage pointer)"
+                      }
+                    },
+                    "id": 2148,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "structConstructorCall",
+                    "lValueRequested": false,
+                    "names": [
+                      "_from",
+                      "_fileHash",
+                      "_keyHash",
+                      "_name",
+                      "_fileType"
+                    ],
+                    "nodeType": "FunctionCall",
+                    "src": "675:222:5",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ShareRequest_$2092_memory_ptr",
+                      "typeString": "struct ShareRequest memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "639:258:5"
+                },
+                {
+                  "expression": {
+                    "id": 2158,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "baseExpression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 2150,
+                            "name": "self",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2108,
+                            "src": "907:4:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                              "typeString": "struct ShareRequests storage pointer"
+                            }
+                          },
+                          "id": 2154,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "_shareRequests",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2099,
+                          "src": "907:19:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$_$",
+                            "typeString": "mapping(address => mapping(string memory => struct ShareRequest storage ref))"
+                          }
+                        },
+                        "id": 2155,
+                        "indexExpression": {
+                          "id": 2152,
+                          "name": "_to",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2112,
+                          "src": "927:3:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "907:24:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$",
+                          "typeString": "mapping(string memory => struct ShareRequest storage ref)"
+                        }
+                      },
+                      "id": 2156,
+                      "indexExpression": {
+                        "id": 2153,
+                        "name": "_fileHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2114,
+                        "src": "932:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "907:35:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ShareRequest_$2092_storage",
+                        "typeString": "struct ShareRequest storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 2157,
+                      "name": "_shareRequest",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2141,
+                      "src": "945:13:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ShareRequest_$2092_memory_ptr",
+                        "typeString": "struct ShareRequest memory"
+                      }
+                    },
+                    "src": "907:51:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ShareRequest_$2092_storage",
+                      "typeString": "struct ShareRequest storage ref"
+                    }
+                  },
+                  "id": 2159,
+                  "nodeType": "ExpressionStatement",
+                  "src": "907:51:5"
+                },
+                {
+                  "expression": {
+                    "arguments": [
+                      {
+                        "id": 2166,
+                        "name": "_fileHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2114,
+                        "src": "989:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      ],
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 2160,
+                            "name": "self",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2108,
+                            "src": "968:4:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                              "typeString": "struct ShareRequests storage pointer"
+                            }
+                          },
+                          "id": 2163,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "_keys",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2104,
+                          "src": "968:10:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                            "typeString": "mapping(address => string storage ref[] storage ref)"
+                          }
+                        },
+                        "id": 2164,
+                        "indexExpression": {
+                          "id": 2162,
+                          "name": "_to",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2112,
+                          "src": "979:3:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "968:15:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                          "typeString": "string storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2165,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "src": "968:20:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_string_storage_$returns$__$",
+                        "typeString": "function (string storage ref)"
+                      }
+                    },
+                    "id": 2167,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "968:31:5",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2168,
+                  "nodeType": "ExpressionStatement",
+                  "src": "968:31:5"
+                }
+              ]
+            },
+            "id": 2170,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addShareRequest",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2121,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2108,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "382:26:5",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                    "typeString": "struct ShareRequests"
+                  },
+                  "typeName": {
+                    "id": 2107,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2106,
+                      "name": "ShareRequests",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2105,
+                      "src": "382:13:5"
+                    },
+                    "referencedDeclaration": 2105,
+                    "src": "382:13:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                      "typeString": "struct ShareRequests"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2110,
+                  "mutability": "mutable",
+                  "name": "_from",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "410:13:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2109,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "410:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2112,
+                  "mutability": "mutable",
+                  "name": "_to",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "425:11:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2111,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "425:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2114,
+                  "mutability": "mutable",
+                  "name": "_fileHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "438:23:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2113,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "438:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2116,
+                  "mutability": "mutable",
+                  "name": "_keyHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "463:22:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2115,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "463:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2118,
+                  "mutability": "mutable",
+                  "name": "_name",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "487:19:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2117,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "487:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2120,
+                  "mutability": "mutable",
+                  "name": "_fileType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2170,
+                  "src": "508:23:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2119,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "508:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "381:151:5"
+            },
+            "returnParameters": {
+              "id": 2122,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "542:0:5"
+            },
+            "scope": 2299,
+            "src": "357:649:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2234,
+              "nodeType": "Block",
+              "src": "1111:302:5",
+              "statements": [
+                {
+                  "assignments": [
+                    2184
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 2184,
+                      "mutability": "mutable",
+                      "name": "_shareRequest",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 2234,
+                      "src": "1121:35:5",
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_memory_ptr_$dyn_memory_ptr",
+                        "typeString": "struct ShareRequest[]"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 2182,
+                          "nodeType": "UserDefinedTypeName",
+                          "pathNode": {
+                            "id": 2181,
+                            "name": "ShareRequest",
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 2092,
+                            "src": "1121:12:5"
+                          },
+                          "referencedDeclaration": 2092,
+                          "src": "1121:12:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ShareRequest_$2092_storage_ptr",
+                            "typeString": "struct ShareRequest"
+                          }
+                        },
+                        "id": 2183,
+                        "nodeType": "ArrayTypeName",
+                        "src": "1121:14:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_storage_$dyn_storage_ptr",
+                          "typeString": "struct ShareRequest[]"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 2196,
+                  "initialValue": {
+                    "arguments": [
+                      {
+                        "expression": {
+                          "baseExpression": {
+                            "expression": {
+                              "id": 2189,
+                              "name": "self",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2173,
+                              "src": "1178:4:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                                "typeString": "struct ShareRequests storage pointer"
+                              }
+                            },
+                            "id": 2190,
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "_keys",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2104,
+                            "src": "1178:10:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                              "typeString": "mapping(address => string storage ref[] storage ref)"
+                            }
+                          },
+                          "id": 2193,
+                          "indexExpression": {
+                            "expression": {
+                              "id": 2191,
+                              "name": "msg",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967281,
+                              "src": "1189:3:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_magic_message",
+                                "typeString": "msg"
+                              }
+                            },
+                            "id": 2192,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sender",
+                            "nodeType": "MemberAccess",
+                            "src": "1189:10:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "IndexAccess",
+                          "src": "1178:22:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                            "typeString": "string storage ref[] storage ref"
+                          }
+                        },
+                        "id": 2194,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "length",
+                        "nodeType": "MemberAccess",
+                        "src": "1178:29:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 2188,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "lValueRequested": false,
+                      "nodeType": "NewExpression",
+                      "src": "1159:18:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_ShareRequest_$2092_memory_ptr_$dyn_memory_ptr_$",
+                        "typeString": "function (uint256) pure returns (struct ShareRequest memory[] memory)"
+                      },
+                      "typeName": {
+                        "baseType": {
+                          "id": 2186,
+                          "nodeType": "UserDefinedTypeName",
+                          "pathNode": {
+                            "id": 2185,
+                            "name": "ShareRequest",
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 2092,
+                            "src": "1163:12:5"
+                          },
+                          "referencedDeclaration": 2092,
+                          "src": "1163:12:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ShareRequest_$2092_storage_ptr",
+                            "typeString": "struct ShareRequest"
+                          }
+                        },
+                        "id": 2187,
+                        "nodeType": "ArrayTypeName",
+                        "src": "1163:14:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_storage_$dyn_storage_ptr",
+                          "typeString": "struct ShareRequest[]"
+                        }
+                      }
+                    },
+                    "id": 2195,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "1159:49:5",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct ShareRequest memory[] memory"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "1121:87:5"
+                },
+                {
+                  "body": {
+                    "id": 2230,
+                    "nodeType": "Block",
+                    "src": "1275:102:5",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 2228,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "baseExpression": {
+                              "id": 2212,
+                              "name": "_shareRequest",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2184,
+                              "src": "1289:13:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_memory_ptr_$dyn_memory_ptr",
+                                "typeString": "struct ShareRequest memory[] memory"
+                              }
+                            },
+                            "id": 2214,
+                            "indexExpression": {
+                              "id": 2213,
+                              "name": "i",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 2198,
+                              "src": "1303:1:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": true,
+                            "nodeType": "IndexAccess",
+                            "src": "1289:16:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequest_$2092_memory_ptr",
+                              "typeString": "struct ShareRequest memory"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "baseExpression": {
+                              "baseExpression": {
+                                "expression": {
+                                  "id": 2215,
+                                  "name": "self",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 2173,
+                                  "src": "1308:4:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                                    "typeString": "struct ShareRequests storage pointer"
+                                  }
+                                },
+                                "id": 2216,
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "_shareRequests",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 2099,
+                                "src": "1308:19:5",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$_$",
+                                  "typeString": "mapping(address => mapping(string memory => struct ShareRequest storage ref))"
+                                }
+                              },
+                              "id": 2219,
+                              "indexExpression": {
+                                "expression": {
+                                  "id": 2217,
+                                  "name": "msg",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 4294967281,
+                                  "src": "1328:3:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_message",
+                                    "typeString": "msg"
+                                  }
+                                },
+                                "id": 2218,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "sender",
+                                "nodeType": "MemberAccess",
+                                "src": "1328:10:5",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_address",
+                                  "typeString": "address"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1308:31:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$",
+                                "typeString": "mapping(string memory => struct ShareRequest storage ref)"
+                              }
+                            },
+                            "id": 2227,
+                            "indexExpression": {
+                              "baseExpression": {
+                                "baseExpression": {
+                                  "expression": {
+                                    "id": 2220,
+                                    "name": "self",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 2173,
+                                    "src": "1340:4:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                                      "typeString": "struct ShareRequests storage pointer"
+                                    }
+                                  },
+                                  "id": 2221,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "_keys",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 2104,
+                                  "src": "1340:10:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                                    "typeString": "mapping(address => string storage ref[] storage ref)"
+                                  }
+                                },
+                                "id": 2224,
+                                "indexExpression": {
+                                  "expression": {
+                                    "id": 2222,
+                                    "name": "msg",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 4294967281,
+                                    "src": "1351:3:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_message",
+                                      "typeString": "msg"
+                                    }
+                                  },
+                                  "id": 2223,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "sender",
+                                  "nodeType": "MemberAccess",
+                                  "src": "1351:10:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                },
+                                "isConstant": false,
+                                "isLValue": true,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "IndexAccess",
+                                "src": "1340:22:5",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                                  "typeString": "string storage ref[] storage ref"
+                                }
+                              },
+                              "id": 2226,
+                              "indexExpression": {
+                                "id": 2225,
+                                "name": "i",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 2198,
+                                "src": "1363:1:5",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "nodeType": "IndexAccess",
+                              "src": "1340:25:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_string_storage",
+                                "typeString": "string storage ref"
+                              }
+                            },
+                            "isConstant": false,
+                            "isLValue": true,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "nodeType": "IndexAccess",
+                            "src": "1308:58:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequest_$2092_storage",
+                              "typeString": "struct ShareRequest storage ref"
+                            }
+                          },
+                          "src": "1289:77:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_ShareRequest_$2092_memory_ptr",
+                            "typeString": "struct ShareRequest memory"
+                          }
+                        },
+                        "id": 2229,
+                        "nodeType": "ExpressionStatement",
+                        "src": "1289:77:5"
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2208,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2201,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2198,
+                      "src": "1235:1:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 2202,
+                            "name": "self",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2173,
+                            "src": "1239:4:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                              "typeString": "struct ShareRequests storage pointer"
+                            }
+                          },
+                          "id": 2203,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "_keys",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2104,
+                          "src": "1239:10:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                            "typeString": "mapping(address => string storage ref[] storage ref)"
+                          }
+                        },
+                        "id": 2206,
+                        "indexExpression": {
+                          "expression": {
+                            "id": 2204,
+                            "name": "msg",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 4294967281,
+                            "src": "1250:3:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_message",
+                              "typeString": "msg"
+                            }
+                          },
+                          "id": 2205,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "sender",
+                          "nodeType": "MemberAccess",
+                          "src": "1250:10:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1239:22:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                          "typeString": "string storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2207,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "1239:29:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1235:33:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2231,
+                  "initializationExpression": {
+                    "assignments": [
+                      2198
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2198,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2231,
+                        "src": "1223:6:5",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2197,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1223:4:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2200,
+                    "initialValue": {
+                      "hexValue": "30",
+                      "id": 2199,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1232:1:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1223:10:5"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 2210,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1270:3:5",
+                      "subExpression": {
+                        "id": 2209,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2198,
+                        "src": "1270:1:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2211,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1270:3:5"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1218:159:5"
+                },
+                {
+                  "expression": {
+                    "id": 2232,
+                    "name": "_shareRequest",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 2184,
+                    "src": "1393:13:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_memory_ptr_$dyn_memory_ptr",
+                      "typeString": "struct ShareRequest memory[] memory"
+                    }
+                  },
+                  "functionReturnParameters": 2179,
+                  "id": 2233,
+                  "nodeType": "Return",
+                  "src": "1386:20:5"
+                }
+              ]
+            },
+            "id": 2235,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getShareRequests",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2174,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2173,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2235,
+                  "src": "1038:26:5",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                    "typeString": "struct ShareRequests"
+                  },
+                  "typeName": {
+                    "id": 2172,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2171,
+                      "name": "ShareRequests",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2105,
+                      "src": "1038:13:5"
+                    },
+                    "referencedDeclaration": 2105,
+                    "src": "1038:13:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                      "typeString": "struct ShareRequests"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1037:28:5"
+            },
+            "returnParameters": {
+              "id": 2179,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2178,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2235,
+                  "src": "1088:21:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_memory_ptr_$dyn_memory_ptr",
+                    "typeString": "struct ShareRequest[]"
+                  },
+                  "typeName": {
+                    "baseType": {
+                      "id": 2176,
+                      "nodeType": "UserDefinedTypeName",
+                      "pathNode": {
+                        "id": 2175,
+                        "name": "ShareRequest",
+                        "nodeType": "IdentifierPath",
+                        "referencedDeclaration": 2092,
+                        "src": "1088:12:5"
+                      },
+                      "referencedDeclaration": 2092,
+                      "src": "1088:12:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ShareRequest_$2092_storage_ptr",
+                        "typeString": "struct ShareRequest"
+                      }
+                    },
+                    "id": 2177,
+                    "nodeType": "ArrayTypeName",
+                    "src": "1088:14:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_array$_t_struct$_ShareRequest_$2092_storage_$dyn_storage_ptr",
+                      "typeString": "struct ShareRequest[]"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1087:23:5"
+            },
+            "scope": 2299,
+            "src": "1012:401:5",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 2297,
+              "nodeType": "Block",
+              "src": "1525:307:5",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 2251,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "UnaryOperation",
+                    "operator": "delete",
+                    "prefix": true,
+                    "src": "1535:45:5",
+                    "subExpression": {
+                      "baseExpression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 2245,
+                            "name": "self",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2238,
+                            "src": "1542:4:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                              "typeString": "struct ShareRequests storage pointer"
+                            }
+                          },
+                          "id": 2246,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "_shareRequests",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2099,
+                          "src": "1542:19:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$_$",
+                            "typeString": "mapping(address => mapping(string memory => struct ShareRequest storage ref))"
+                          }
+                        },
+                        "id": 2248,
+                        "indexExpression": {
+                          "id": 2247,
+                          "name": "sender",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2240,
+                          "src": "1562:6:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1542:27:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_ShareRequest_$2092_storage_$",
+                          "typeString": "mapping(string memory => struct ShareRequest storage ref)"
+                        }
+                      },
+                      "id": 2250,
+                      "indexExpression": {
+                        "id": 2249,
+                        "name": "_fileHash",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2242,
+                        "src": "1570:9:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_string_memory_ptr",
+                          "typeString": "string memory"
+                        }
+                      },
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "nodeType": "IndexAccess",
+                      "src": "1542:38:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_ShareRequest_$2092_storage",
+                        "typeString": "struct ShareRequest storage ref"
+                      }
+                    },
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 2252,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1535:45:5"
+                },
+                {
+                  "body": {
+                    "id": 2295,
+                    "nodeType": "Block",
+                    "src": "1643:183:5",
+                    "statements": [
+                      {
+                        "condition": {
+                          "commonType": {
+                            "typeIdentifier": "t_bytes32",
+                            "typeString": "bytes32"
+                          },
+                          "id": 2284,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "arguments": [
+                              {
+                                "arguments": [
+                                  {
+                                    "baseExpression": {
+                                      "baseExpression": {
+                                        "expression": {
+                                          "id": 2270,
+                                          "name": "self",
+                                          "nodeType": "Identifier",
+                                          "overloadedDeclarations": [],
+                                          "referencedDeclaration": 2238,
+                                          "src": "1688:4:5",
+                                          "typeDescriptions": {
+                                            "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                                            "typeString": "struct ShareRequests storage pointer"
+                                          }
+                                        },
+                                        "id": 2271,
+                                        "isConstant": false,
+                                        "isLValue": true,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "memberName": "_keys",
+                                        "nodeType": "MemberAccess",
+                                        "referencedDeclaration": 2104,
+                                        "src": "1688:10:5",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                                          "typeString": "mapping(address => string storage ref[] storage ref)"
+                                        }
+                                      },
+                                      "id": 2273,
+                                      "indexExpression": {
+                                        "id": 2272,
+                                        "name": "sender",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 2240,
+                                        "src": "1699:6:5",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_address",
+                                          "typeString": "address"
+                                        }
+                                      },
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "nodeType": "IndexAccess",
+                                      "src": "1688:18:5",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                                        "typeString": "string storage ref[] storage ref"
+                                      }
+                                    },
+                                    "id": 2275,
+                                    "indexExpression": {
+                                      "id": 2274,
+                                      "name": "i",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 2254,
+                                      "src": "1707:1:5",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "1688:21:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_string_storage",
+                                      "typeString": "string storage ref"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_storage",
+                                      "typeString": "string storage ref"
+                                    }
+                                  ],
+                                  "expression": {
+                                    "id": 2268,
+                                    "name": "abi",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 4294967295,
+                                    "src": "1671:3:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_abi",
+                                      "typeString": "abi"
+                                    }
+                                  },
+                                  "id": 2269,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "memberName": "encodePacked",
+                                  "nodeType": "MemberAccess",
+                                  "src": "1671:16:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                                    "typeString": "function () pure returns (bytes memory)"
+                                  }
+                                },
+                                "id": 2276,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "functionCall",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "1671:39:5",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              ],
+                              "id": 2267,
+                              "name": "keccak256",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967288,
+                              "src": "1661:9:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                                "typeString": "function (bytes memory) pure returns (bytes32)"
+                              }
+                            },
+                            "id": 2277,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1661:50:5",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "arguments": [
+                              {
+                                "arguments": [
+                                  {
+                                    "id": 2281,
+                                    "name": "_fileHash",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 2242,
+                                    "src": "1742:9:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    }
+                                  ],
+                                  "expression": {
+                                    "id": 2279,
+                                    "name": "abi",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 4294967295,
+                                    "src": "1725:3:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_magic_abi",
+                                      "typeString": "abi"
+                                    }
+                                  },
+                                  "id": 2280,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "memberName": "encodePacked",
+                                  "nodeType": "MemberAccess",
+                                  "src": "1725:16:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_function_abiencodepacked_pure$__$returns$_t_bytes_memory_ptr_$",
+                                    "typeString": "function () pure returns (bytes memory)"
+                                  }
+                                },
+                                "id": 2282,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "functionCall",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "1725:27:5",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_bytes_memory_ptr",
+                                  "typeString": "bytes memory"
+                                }
+                              ],
+                              "id": 2278,
+                              "name": "keccak256",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 4294967288,
+                              "src": "1715:9:5",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
+                                "typeString": "function (bytes memory) pure returns (bytes32)"
+                              }
+                            },
+                            "id": 2283,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "1715:38:5",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bytes32",
+                              "typeString": "bytes32"
+                            }
+                          },
+                          "src": "1661:92:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 2294,
+                        "nodeType": "IfStatement",
+                        "src": "1657:159:5",
+                        "trueBody": {
+                          "id": 2293,
+                          "nodeType": "Block",
+                          "src": "1755:61:5",
+                          "statements": [
+                            {
+                              "expression": {
+                                "id": 2291,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "nodeType": "UnaryOperation",
+                                "operator": "delete",
+                                "prefix": true,
+                                "src": "1773:28:5",
+                                "subExpression": {
+                                  "baseExpression": {
+                                    "baseExpression": {
+                                      "expression": {
+                                        "id": 2285,
+                                        "name": "self",
+                                        "nodeType": "Identifier",
+                                        "overloadedDeclarations": [],
+                                        "referencedDeclaration": 2238,
+                                        "src": "1780:4:5",
+                                        "typeDescriptions": {
+                                          "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                                          "typeString": "struct ShareRequests storage pointer"
+                                        }
+                                      },
+                                      "id": 2286,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "memberName": "_keys",
+                                      "nodeType": "MemberAccess",
+                                      "referencedDeclaration": 2104,
+                                      "src": "1780:10:5",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                                        "typeString": "mapping(address => string storage ref[] storage ref)"
+                                      }
+                                    },
+                                    "id": 2288,
+                                    "indexExpression": {
+                                      "id": 2287,
+                                      "name": "sender",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": 2240,
+                                      "src": "1791:6:5",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                      }
+                                    },
+                                    "isConstant": false,
+                                    "isLValue": true,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "nodeType": "IndexAccess",
+                                    "src": "1780:18:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                                      "typeString": "string storage ref[] storage ref"
+                                    }
+                                  },
+                                  "id": 2290,
+                                  "indexExpression": {
+                                    "id": 2289,
+                                    "name": "i",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 2254,
+                                    "src": "1799:1:5",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": true,
+                                  "nodeType": "IndexAccess",
+                                  "src": "1780:21:5",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage",
+                                    "typeString": "string storage ref"
+                                  }
+                                },
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_tuple$__$",
+                                  "typeString": "tuple()"
+                                }
+                              },
+                              "id": 2292,
+                              "nodeType": "ExpressionStatement",
+                              "src": "1773:28:5"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "condition": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 2263,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "id": 2257,
+                      "name": "i",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 2254,
+                      "src": "1607:1:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "expression": {
+                        "baseExpression": {
+                          "expression": {
+                            "id": 2258,
+                            "name": "self",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 2238,
+                            "src": "1611:4:5",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                              "typeString": "struct ShareRequests storage pointer"
+                            }
+                          },
+                          "id": 2259,
+                          "isConstant": false,
+                          "isLValue": true,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "_keys",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 2104,
+                          "src": "1611:10:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_mapping$_t_address_$_t_array$_t_string_storage_$dyn_storage_$",
+                            "typeString": "mapping(address => string storage ref[] storage ref)"
+                          }
+                        },
+                        "id": 2261,
+                        "indexExpression": {
+                          "id": 2260,
+                          "name": "sender",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 2240,
+                          "src": "1622:6:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "isConstant": false,
+                        "isLValue": true,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "nodeType": "IndexAccess",
+                        "src": "1611:18:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
+                          "typeString": "string storage ref[] storage ref"
+                        }
+                      },
+                      "id": 2262,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "length",
+                      "nodeType": "MemberAccess",
+                      "src": "1611:25:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1607:29:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "id": 2296,
+                  "initializationExpression": {
+                    "assignments": [
+                      2254
+                    ],
+                    "declarations": [
+                      {
+                        "constant": false,
+                        "id": 2254,
+                        "mutability": "mutable",
+                        "name": "i",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 2296,
+                        "src": "1595:6:5",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "typeName": {
+                          "id": 2253,
+                          "name": "uint",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "1595:4:5",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "id": 2256,
+                    "initialValue": {
+                      "hexValue": "30",
+                      "id": 2255,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "1604:1:5",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_0_by_1",
+                        "typeString": "int_const 0"
+                      },
+                      "value": "0"
+                    },
+                    "nodeType": "VariableDeclarationStatement",
+                    "src": "1595:10:5"
+                  },
+                  "loopExpression": {
+                    "expression": {
+                      "id": 2265,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "nodeType": "UnaryOperation",
+                      "operator": "++",
+                      "prefix": false,
+                      "src": "1638:3:5",
+                      "subExpression": {
+                        "id": 2264,
+                        "name": "i",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 2254,
+                        "src": "1638:1:5",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "id": 2266,
+                    "nodeType": "ExpressionStatement",
+                    "src": "1638:3:5"
+                  },
+                  "nodeType": "ForStatement",
+                  "src": "1590:236:5"
+                }
+              ]
+            },
+            "id": 2298,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deleteShareRequest",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 2243,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 2238,
+                  "mutability": "mutable",
+                  "name": "self",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2298,
+                  "src": "1447:26:5",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                    "typeString": "struct ShareRequests"
+                  },
+                  "typeName": {
+                    "id": 2237,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 2236,
+                      "name": "ShareRequests",
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 2105,
+                      "src": "1447:13:5"
+                    },
+                    "referencedDeclaration": 2105,
+                    "src": "1447:13:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_ShareRequests_$2105_storage_ptr",
+                      "typeString": "struct ShareRequests"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2240,
+                  "mutability": "mutable",
+                  "name": "sender",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2298,
+                  "src": "1475:14:5",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 2239,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1475:7:5",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 2242,
+                  "mutability": "mutable",
+                  "name": "_fileHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 2298,
+                  "src": "1491:23:5",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 2241,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1491:6:5",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1446:69:5"
+            },
+            "returnParameters": {
+              "id": 2244,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1525:0:5"
+            },
+            "scope": 2299,
+            "src": "1419:413:5",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 2300,
+        "src": "330:1504:5"
+      }
+    ],
+    "src": "39:1795:5"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.14",
+  "updatedAt": "2023-06-17T01:11:03.792Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -4,68 +4,38 @@ pragma experimental ABIEncoderV2;
 
 import "./utils/Ownable.sol";
 import "./utils/SigUtils.sol";
-
-
-struct File {
-    string _name;
-    string _fileType;
-    string _ipfsHash;
-    string _key;
-}
+import "./utils/FileManager.sol";
+import "./utils/File.sol";
 
 contract Vault is Ownable {
     string public user;
-    mapping(string => File) files;
-    string[] filesKeys;
+    using FileManager for Files;
+    Files files;
+
     constructor(address _owner, string memory _userName ) Ownable(msg.sender, _owner) {
         user = _userName;
     }
 
-    function getAllFiles() external view returns(File[] memory) {
-        File[] memory _files = new File[](filesKeys.length);
-        for (uint i = 0; i < filesKeys.length; i++) {
-            _files[i] = files[filesKeys[i]];
-        }
-        return _files;
+    function getUser() external view returns(string memory) {
+        return user;
     }
 
-    event FileCreated();
+    function getAllFiles() external view returns(File[] memory) {
+        return files.allFiles();
+    }
+
     function createFile(string memory name, string memory fileType, string memory ipfsHash, string memory key) external onlyOwnerOrCreator {
-        File memory f = File(
-           {
-            _name: name,
-            _fileType: fileType,
-            _ipfsHash: ipfsHash,
-            _key: key
-           }
-        );
-        files[ipfsHash] = f;
-        filesKeys.push(ipfsHash);
-        emit FileCreated();
+        files.addFile(name, fileType, ipfsHash, key);
     }
 
     event FileDeleted();
     function deleteFile(string memory ipfsHash) external onlyOwnerOrCreator {
-        require(abi.encodePacked(files[ipfsHash]._ipfsHash).length > 0, "index out of bounds" );
-        delete files[ipfsHash];
-        for (uint i = 0; i < filesKeys.length; i++) {
-            if (keccak256(abi.encodePacked(filesKeys[i])) == keccak256(abi.encodePacked(ipfsHash))) {
-                // delete filesKeys[i];
-                filesKeys[i] = filesKeys[filesKeys.length-1];
-                filesKeys.pop();
-            }
-        }
-        emit FileDeleted();
+        files.deleteFile(ipfsHash);
     }
 
-    event FilesImported();
     function migrateFiles(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, File[] memory _files) public{
         address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
-        require(signer == owner || signer == creator, 'neither owner nor creator');
-        for (uint i = 0; i < _files.length; i++ ){
-            files[_files[i]._ipfsHash] = _files[i];
-            filesKeys.push(_files[i]._ipfsHash);
-        }
-        emit FilesImported();
+        require(signer == owner || signer == creator, 'nauth');
+        files.migrateFiles(_files);
     }
 }
