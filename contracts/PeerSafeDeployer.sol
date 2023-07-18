@@ -67,7 +67,7 @@ contract PeerSafeDeployer is Ownable {
     }
 
     function getShareRequests() external view returns(ShareRequest[] memory) {
-        return shareRequests.getShareRequests();
+        return shareRequests.getShareRequests(msg.sender);
     }
 
     function acceptShareRequest(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, string memory _fileHash) external {

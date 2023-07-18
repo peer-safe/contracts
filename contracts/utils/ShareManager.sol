@@ -31,10 +31,10 @@ library ShareManager {
         self._keys[_to].push(_fileHash);
     }
 
-    function getShareRequests(ShareRequests storage self) internal view returns(ShareRequest[] memory) {
-        ShareRequest[] memory _shareRequest = new ShareRequest[](self._keys[msg.sender].length);
-        for (uint i = 0; i < self._keys[msg.sender].length; i++) {
-            _shareRequest[i] = self._shareRequests[msg.sender][self._keys[msg.sender][i]];
+    function getShareRequests(ShareRequests storage self, address _sender) internal view returns(ShareRequest[] memory) {
+        ShareRequest[] memory _shareRequest = new ShareRequest[](self._keys[_sender].length);
+        for (uint i = 0; i < self._keys[_sender].length; i++) {
+            _shareRequest[i] = self._shareRequests[_sender][self._keys[_sender][i]];
         }
         return _shareRequest;
     }
