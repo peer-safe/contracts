@@ -30,6 +30,13 @@ library FileManager {
            }
         );
         self._files[ipfsHash] = f;
+        for (uint i = 0; i < self._keys.length; i++) {
+            if (keccak256(abi.encodePacked(self._keys[i])) == keccak256(abi.encodePacked(ipfsHash))) {
+                // delete filesKeys[i];
+                self._keys[i] = self._keys[self._keys.length-1];
+                self._keys.pop();
+            }
+        }
         self._keys.push(ipfsHash);
         emit FileCreated();
     }
