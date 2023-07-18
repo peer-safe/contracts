@@ -66,8 +66,10 @@ contract PeerSafeDeployer is Ownable {
         shareRequests.addShareRequest(signer, _to, _fileHash, _keyHash, _name, _fileType);
     }
 
-    function getShareRequests() external view returns(ShareRequest[] memory) {
-        return shareRequests.getShareRequests(msg.sender);
+    function getShareRequests(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s) external view returns(ShareRequest[] memory) {
+        address signer = SigUtils.recoverSigner(_hashedMessage, _v, _r, _s);
+        require(signer != address(0), "ERR691");
+        return shareRequests.getShareRequests(signer);
     }
 
     function acceptShareRequest(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, string memory _fileHash) external {

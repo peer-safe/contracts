@@ -50,7 +50,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "array_allocation_size_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                          "name": "array_allocation_size_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                           "nodeType": "YulIdentifier",
                           "src": "185:77:13"
                         },
@@ -238,7 +238,7 @@
                                 }
                               ],
                               "functionName": {
-                                "name": "abi_decode_t_struct$_File_$816_memory_ptr",
+                                "name": "abi_decode_t_struct$_File_$843_memory_ptr",
                                 "nodeType": "YulIdentifier",
                                 "src": "533:41:13"
                               },
@@ -418,7 +418,7 @@
                 }
               ]
             },
-            "name": "abi_decode_available_length_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+            "name": "abi_decode_available_length_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -935,7 +935,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_decode_available_length_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                      "name": "abi_decode_available_length_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                       "nodeType": "YulIdentifier",
                       "src": "1422:83:13"
                     },
@@ -952,7 +952,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+            "name": "abi_decode_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2153,7 +2153,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_struct$_File_$816_memory_ptr",
+            "name": "abi_decode_t_struct$_File_$843_memory_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2221,7 +2221,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "validator_revert_t_struct$_Files_$828_storage_ptr",
+                      "name": "validator_revert_t_struct$_Files_$855_storage_ptr",
                       "nodeType": "YulIdentifier",
                       "src": "3404:49:13"
                     },
@@ -2233,7 +2233,7 @@
                 }
               ]
             },
-            "name": "abi_decode_t_struct$_Files_$828_storage_ptr",
+            "name": "abi_decode_t_struct$_Files_$855_storage_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -2398,7 +2398,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "abi_decode_t_struct$_Files_$828_storage_ptr",
+                          "name": "abi_decode_t_struct$_Files_$855_storage_ptr",
                           "nodeType": "YulIdentifier",
                           "src": "3750:43:13"
                         },
@@ -2560,7 +2560,7 @@
                           }
                         ],
                         "functionName": {
-                          "name": "abi_decode_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                          "name": "abi_decode_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                           "nodeType": "YulIdentifier",
                           "src": "3994:66:13"
                         },
@@ -2579,7 +2579,7 @@
                 }
               ]
             },
-            "name": "abi_decode_tuple_t_struct$_Files_$828_storage_ptrt_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+            "name": "abi_decode_tuple_t_struct$_Files_$855_storage_ptrt_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3182,7 +3182,7 @@
                 }
               ]
             },
-            "name": "array_allocation_size_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+            "name": "array_allocation_size_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -3553,7 +3553,7 @@
                 }
               ]
             },
-            "name": "cleanup_t_struct$_Files_$828_storage_ptr",
+            "name": "cleanup_t_struct$_Files_$855_storage_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4857,7 +4857,7 @@
                               }
                             ],
                             "functionName": {
-                              "name": "cleanup_t_struct$_Files_$828_storage_ptr",
+                              "name": "cleanup_t_struct$_Files_$855_storage_ptr",
                               "nodeType": "YulIdentifier",
                               "src": "8247:40:13"
                             },
@@ -4887,7 +4887,7 @@
                 }
               ]
             },
-            "name": "validator_revert_t_struct$_Files_$828_storage_ptr",
+            "name": "validator_revert_t_struct$_Files_$855_storage_ptr",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -4901,7 +4901,7 @@
           }
         ]
       },
-      "contents": "{\n\n    // struct File[]\n    function abi_decode_available_length_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(offset, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(length))\n        let dst := array\n        mstore(array, length) dst := add(array, 0x20)\n        let src := offset\n\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            let elementPos := add(offset, calldataload(src))\n            mstore(dst, abi_decode_t_struct$_File_$816_memory_ptr(elementPos, end))\n            dst := add(dst, 0x20)\n            src := add(src, 0x20)\n        }\n    }\n\n    function abi_decode_available_length_t_string_memory_ptr(src, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_string_memory_ptr(length))\n        mstore(array, length)\n        let dst := add(array, 0x20)\n        if gt(add(src, length), end) { revert(0, 0) }\n        copy_calldata_to_memory(src, dst, length)\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    // struct File[]\n    function abi_decode_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    // string\n    function abi_decode_t_string_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_string_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    // struct File\n    function abi_decode_t_struct$_File_$816_memory_ptr(headStart, end) -> value {\n        if slt(sub(end, headStart), 0xa0) { revert(0, 0) }\n        value := allocateMemory(0xa0)\n\n        {\n            // _name\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x00), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _fileType\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x20), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _ipfsHash\n\n            let offset := calldataload(add(headStart, 64))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x40), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _key\n\n            let offset := calldataload(add(headStart, 96))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x60), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _sharedBy\n\n            let offset := 128\n\n            mstore(add(value, 0x80), abi_decode_t_address(add(headStart, offset), end))\n\n        }\n\n    }\n\n    function abi_decode_t_struct$_Files_$828_storage_ptr(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_struct$_Files_$828_storage_ptr(value)\n    }\n\n    function abi_decode_tuple_t_struct$_Files_$828_storage_ptrt_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_struct$_Files_$828_storage_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value1 := abi_decode_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, length)\n    }\n\n    function abi_encode_tuple_packed_t_string_memory_ptr__to_t_string_memory_ptr__nonPadded_inplace_fromStack_reversed(pos , value0) -> end {\n\n        pos := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value0,  pos)\n\n        end := pos\n    }\n\n    function allocateMemory(size) -> memPtr {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, size)\n        // protect against overflow\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n\n    function array_allocation_size_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        size := mul(length, 0x20)\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_allocation_size_t_string_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        // round up\n        size := and(add(length, 0x1f), not(0x1f))\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length) -> updated_pos {\n        updated_pos := pos\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_struct$_Files_$828_storage_ptr(value) -> cleaned {\n        cleaned := value\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function copy_calldata_to_memory(src, dst, length) {\n        calldatacopy(dst, src, length)\n        // clear end\n        mstore(add(dst, length), 0)\n    }\n\n    function copy_memory_to_memory(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        if gt(i, length)\n        {\n            // clear end\n            mstore(add(dst, length), 0)\n        }\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n    function increment_t_uint256(value) -> ret {\n        value := cleanup_t_uint256(value)\n        if eq(value, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function panic_error_0x11() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x41() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_struct$_Files_$828_storage_ptr(value) {\n        if iszero(eq(value, cleanup_t_struct$_Files_$828_storage_ptr(value))) { revert(0, 0) }\n    }\n\n}\n",
+      "contents": "{\n\n    // struct File[]\n    function abi_decode_available_length_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(offset, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(length))\n        let dst := array\n        mstore(array, length) dst := add(array, 0x20)\n        let src := offset\n\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            let elementPos := add(offset, calldataload(src))\n            mstore(dst, abi_decode_t_struct$_File_$843_memory_ptr(elementPos, end))\n            dst := add(dst, 0x20)\n            src := add(src, 0x20)\n        }\n    }\n\n    function abi_decode_available_length_t_string_memory_ptr(src, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_string_memory_ptr(length))\n        mstore(array, length)\n        let dst := add(array, 0x20)\n        if gt(add(src, length), end) { revert(0, 0) }\n        copy_calldata_to_memory(src, dst, length)\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    // struct File[]\n    function abi_decode_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    // string\n    function abi_decode_t_string_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_string_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    // struct File\n    function abi_decode_t_struct$_File_$843_memory_ptr(headStart, end) -> value {\n        if slt(sub(end, headStart), 0xa0) { revert(0, 0) }\n        value := allocateMemory(0xa0)\n\n        {\n            // _name\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x00), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _fileType\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x20), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _ipfsHash\n\n            let offset := calldataload(add(headStart, 64))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x40), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _key\n\n            let offset := calldataload(add(headStart, 96))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            mstore(add(value, 0x60), abi_decode_t_string_memory_ptr(add(headStart, offset), end))\n\n        }\n\n        {\n            // _sharedBy\n\n            let offset := 128\n\n            mstore(add(value, 0x80), abi_decode_t_address(add(headStart, offset), end))\n\n        }\n\n    }\n\n    function abi_decode_t_struct$_Files_$855_storage_ptr(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_struct$_Files_$855_storage_ptr(value)\n    }\n\n    function abi_decode_tuple_t_struct$_Files_$855_storage_ptrt_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_struct$_Files_$855_storage_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value1 := abi_decode_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, length)\n    }\n\n    function abi_encode_tuple_packed_t_string_memory_ptr__to_t_string_memory_ptr__nonPadded_inplace_fromStack_reversed(pos , value0) -> end {\n\n        pos := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value0,  pos)\n\n        end := pos\n    }\n\n    function allocateMemory(size) -> memPtr {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, size)\n        // protect against overflow\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n\n    function array_allocation_size_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        size := mul(length, 0x20)\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_allocation_size_t_string_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        // round up\n        size := and(add(length, 0x1f), not(0x1f))\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length) -> updated_pos {\n        updated_pos := pos\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_struct$_Files_$855_storage_ptr(value) -> cleaned {\n        cleaned := value\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function copy_calldata_to_memory(src, dst, length) {\n        calldatacopy(dst, src, length)\n        // clear end\n        mstore(add(dst, length), 0)\n    }\n\n    function copy_memory_to_memory(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        if gt(i, length)\n        {\n            // clear end\n            mstore(add(dst, length), 0)\n        }\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n    function increment_t_uint256(value) -> ret {\n        value := cleanup_t_uint256(value)\n        if eq(value, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function panic_error_0x11() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x41() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_struct$_Files_$855_storage_ptr(value) {\n        if iszero(eq(value, cleanup_t_struct$_Files_$855_storage_ptr(value))) { revert(0, 0) }\n    }\n\n}\n",
       "id": 13,
       "language": "Yul",
       "name": "#utility.yul"
@@ -4915,21 +4915,21 @@
     "absolutePath": "project:/contracts/utils/FileManager.sol",
     "exportedSymbols": {
       "File": [
-        816
+        843
       ],
       "FileManager": [
-        1073
+        1100
       ],
       "Files": [
-        828
+        855
       ]
     },
-    "id": 1074,
+    "id": 1101,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 818,
+        "id": 845,
         "literals": [
           "solidity",
           "^",
@@ -4942,36 +4942,36 @@
       {
         "absolutePath": "project:/contracts/utils/File.sol",
         "file": "./File.sol",
-        "id": 819,
+        "id": 846,
         "nodeType": "ImportDirective",
-        "scope": 1074,
-        "sourceUnit": 817,
+        "scope": 1101,
+        "sourceUnit": 844,
         "src": "64:20:6",
         "symbolAliases": [],
         "unitAlias": ""
       },
       {
         "canonicalName": "Files",
-        "id": 828,
+        "id": 855,
         "members": [
           {
             "constant": false,
-            "id": 824,
+            "id": 851,
             "mutability": "mutable",
             "name": "_files",
             "nodeType": "VariableDeclaration",
-            "scope": 828,
+            "scope": 855,
             "src": "105:30:6",
             "stateVariable": false,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+              "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
               "typeString": "mapping(string => struct File)"
             },
             "typeName": {
-              "id": 823,
+              "id": 850,
               "keyType": {
-                "id": 820,
+                "id": 847,
                 "name": "string",
                 "nodeType": "ElementaryTypeName",
                 "src": "113:6:6",
@@ -4983,23 +4983,23 @@
               "nodeType": "Mapping",
               "src": "105:23:6",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
                 "typeString": "mapping(string => struct File)"
               },
               "valueType": {
-                "id": 822,
+                "id": 849,
                 "nodeType": "UserDefinedTypeName",
                 "pathNode": {
-                  "id": 821,
+                  "id": 848,
                   "name": "File",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 816,
+                  "referencedDeclaration": 843,
                   "src": "123:4:6"
                 },
-                "referencedDeclaration": 816,
+                "referencedDeclaration": 843,
                 "src": "123:4:6",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_File_$816_storage_ptr",
+                  "typeIdentifier": "t_struct$_File_$843_storage_ptr",
                   "typeString": "struct File"
                 }
               }
@@ -5008,11 +5008,11 @@
           },
           {
             "constant": false,
-            "id": 827,
+            "id": 854,
             "mutability": "mutable",
             "name": "_keys",
             "nodeType": "VariableDeclaration",
-            "scope": 828,
+            "scope": 855,
             "src": "141:14:6",
             "stateVariable": false,
             "storageLocation": "default",
@@ -5022,7 +5022,7 @@
             },
             "typeName": {
               "baseType": {
-                "id": 825,
+                "id": 852,
                 "name": "string",
                 "nodeType": "ElementaryTypeName",
                 "src": "141:6:6",
@@ -5031,7 +5031,7 @@
                   "typeString": "string"
                 }
               },
-              "id": 826,
+              "id": 853,
               "nodeType": "ArrayTypeName",
               "src": "141:8:6",
               "typeDescriptions": {
@@ -5044,7 +5044,7 @@
         ],
         "name": "Files",
         "nodeType": "StructDefinition",
-        "scope": 1074,
+        "scope": 1101,
         "src": "86:72:6",
         "visibility": "public"
       },
@@ -5054,99 +5054,99 @@
         "contractDependencies": [],
         "contractKind": "library",
         "fullyImplemented": true,
-        "id": 1073,
+        "id": 1100,
         "linearizedBaseContracts": [
-          1073
+          1100
         ],
         "name": "FileManager",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "body": {
-              "id": 880,
+              "id": 907,
               "nodeType": "Block",
               "src": "261:209:6",
               "statements": [
                 {
                   "assignments": [
-                    842
+                    869
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 842,
+                      "id": 869,
                       "mutability": "mutable",
                       "name": "_files",
                       "nodeType": "VariableDeclaration",
-                      "scope": 880,
+                      "scope": 907,
                       "src": "271:20:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                        "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                         "typeString": "struct File[]"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 840,
+                          "id": 867,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 839,
+                            "id": 866,
                             "name": "File",
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 816,
+                            "referencedDeclaration": 843,
                             "src": "271:4:6"
                           },
-                          "referencedDeclaration": 816,
+                          "referencedDeclaration": 843,
                           "src": "271:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_File_$816_storage_ptr",
+                            "typeIdentifier": "t_struct$_File_$843_storage_ptr",
                             "typeString": "struct File"
                           }
                         },
-                        "id": 841,
+                        "id": 868,
                         "nodeType": "ArrayTypeName",
                         "src": "271:6:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_File_$816_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_File_$843_storage_$dyn_storage_ptr",
                           "typeString": "struct File[]"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 851,
+                  "id": 878,
                   "initialValue": {
                     "arguments": [
                       {
                         "expression": {
                           "expression": {
-                            "id": 847,
+                            "id": 874,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 831,
+                            "referencedDeclaration": 858,
                             "src": "305:4:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                              "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                               "typeString": "struct Files storage pointer"
                             }
                           },
-                          "id": 848,
+                          "id": 875,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
                           "memberName": "_keys",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 827,
+                          "referencedDeclaration": 854,
                           "src": "305:10:6",
                           "typeDescriptions": {
                             "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                             "typeString": "string storage ref[] storage ref"
                           }
                         },
-                        "id": 849,
+                        "id": 876,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -5167,7 +5167,7 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 846,
+                      "id": 873,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5175,37 +5175,37 @@
                       "nodeType": "NewExpression",
                       "src": "294:10:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr_$",
+                        "typeIdentifier": "t_function_objectcreation_pure$_t_uint256_$returns$_t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr_$",
                         "typeString": "function (uint256) pure returns (struct File memory[] memory)"
                       },
                       "typeName": {
                         "baseType": {
-                          "id": 844,
+                          "id": 871,
                           "nodeType": "UserDefinedTypeName",
                           "pathNode": {
-                            "id": 843,
+                            "id": 870,
                             "name": "File",
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 816,
+                            "referencedDeclaration": 843,
                             "src": "298:4:6"
                           },
-                          "referencedDeclaration": 816,
+                          "referencedDeclaration": 843,
                           "src": "298:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_File_$816_storage_ptr",
+                            "typeIdentifier": "t_struct$_File_$843_storage_ptr",
                             "typeString": "struct File"
                           }
                         },
-                        "id": 845,
+                        "id": 872,
                         "nodeType": "ArrayTypeName",
                         "src": "298:6:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_File_$816_storage_$dyn_storage_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_File_$843_storage_$dyn_storage_ptr",
                           "typeString": "struct File[]"
                         }
                       }
                     },
-                    "id": 850,
+                    "id": 877,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5216,7 +5216,7 @@
                     "src": "294:29:6",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                       "typeString": "struct File memory[] memory"
                     }
                   },
@@ -5225,37 +5225,37 @@
                 },
                 {
                   "body": {
-                    "id": 876,
+                    "id": 903,
                     "nodeType": "Block",
                     "src": "378:63:6",
                     "statements": [
                       {
                         "expression": {
-                          "id": 874,
+                          "id": 901,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
                           "leftHandSide": {
                             "baseExpression": {
-                              "id": 864,
+                              "id": 891,
                               "name": "_files",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 842,
+                              "referencedDeclaration": 869,
                               "src": "392:6:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct File memory[] memory"
                               }
                             },
-                            "id": 866,
+                            "id": 893,
                             "indexExpression": {
-                              "id": 865,
+                              "id": 892,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 853,
+                              "referencedDeclaration": 880,
                               "src": "399:1:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -5269,7 +5269,7 @@
                             "nodeType": "IndexAccess",
                             "src": "392:9:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                              "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                               "typeString": "struct File memory"
                             }
                           },
@@ -5278,67 +5278,67 @@
                           "rightHandSide": {
                             "baseExpression": {
                               "expression": {
-                                "id": 867,
+                                "id": 894,
                                 "name": "self",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 831,
+                                "referencedDeclaration": 858,
                                 "src": "404:4:6",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                  "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                   "typeString": "struct Files storage pointer"
                                 }
                               },
-                              "id": 868,
+                              "id": 895,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "_files",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 824,
+                              "referencedDeclaration": 851,
                               "src": "404:11:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+                                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
                                 "typeString": "mapping(string memory => struct File storage ref)"
                               }
                             },
-                            "id": 873,
+                            "id": 900,
                             "indexExpression": {
                               "baseExpression": {
                                 "expression": {
-                                  "id": 869,
+                                  "id": 896,
                                   "name": "self",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 831,
+                                  "referencedDeclaration": 858,
                                   "src": "416:4:6",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                    "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                     "typeString": "struct Files storage pointer"
                                   }
                                 },
-                                "id": 870,
+                                "id": 897,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "_keys",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 827,
+                                "referencedDeclaration": 854,
                                 "src": "416:10:6",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                   "typeString": "string storage ref[] storage ref"
                                 }
                               },
-                              "id": 872,
+                              "id": 899,
                               "indexExpression": {
-                                "id": 871,
+                                "id": 898,
                                 "name": "i",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 853,
+                                "referencedDeclaration": 880,
                                 "src": "427:1:6",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
@@ -5363,17 +5363,17 @@
                             "nodeType": "IndexAccess",
                             "src": "404:26:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_File_$816_storage",
+                              "typeIdentifier": "t_struct$_File_$843_storage",
                               "typeString": "struct File storage ref"
                             }
                           },
                           "src": "392:38:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                            "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                             "typeString": "struct File memory"
                           }
                         },
-                        "id": 875,
+                        "id": 902,
                         "nodeType": "ExpressionStatement",
                         "src": "392:38:6"
                       }
@@ -5384,17 +5384,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 860,
+                    "id": 887,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 856,
+                      "id": 883,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 853,
+                      "referencedDeclaration": 880,
                       "src": "350:1:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -5406,32 +5406,32 @@
                     "rightExpression": {
                       "expression": {
                         "expression": {
-                          "id": 857,
+                          "id": 884,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 831,
+                          "referencedDeclaration": 858,
                           "src": "354:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                            "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                             "typeString": "struct Files storage pointer"
                           }
                         },
-                        "id": 858,
+                        "id": 885,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "_keys",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 854,
                         "src": "354:10:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                           "typeString": "string storage ref[] storage ref"
                         }
                       },
-                      "id": 859,
+                      "id": 886,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -5450,19 +5450,19 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 877,
+                  "id": 904,
                   "initializationExpression": {
                     "assignments": [
-                      853
+                      880
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 853,
+                        "id": 880,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 877,
+                        "scope": 904,
                         "src": "338:6:6",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -5471,7 +5471,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 852,
+                          "id": 879,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
                           "src": "338:4:6",
@@ -5483,10 +5483,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 855,
+                    "id": 882,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 854,
+                      "id": 881,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -5505,7 +5505,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 862,
+                      "id": 889,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -5515,11 +5515,11 @@
                       "prefix": false,
                       "src": "373:3:6",
                       "subExpression": {
-                        "id": 861,
+                        "id": 888,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 853,
+                        "referencedDeclaration": 880,
                         "src": "373:1:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -5531,7 +5531,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 863,
+                    "id": 890,
                     "nodeType": "ExpressionStatement",
                     "src": "373:3:6"
                   },
@@ -5540,62 +5540,62 @@
                 },
                 {
                   "expression": {
-                    "id": 878,
+                    "id": 905,
                     "name": "_files",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 842,
+                    "referencedDeclaration": 869,
                     "src": "457:6:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                       "typeString": "struct File memory[] memory"
                     }
                   },
-                  "functionReturnParameters": 837,
-                  "id": 879,
+                  "functionReturnParameters": 864,
+                  "id": 906,
                   "nodeType": "Return",
                   "src": "450:13:6"
                 }
               ]
             },
-            "id": 881,
+            "id": 908,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "allFiles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 832,
+              "id": 859,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 831,
+                  "id": 858,
                   "mutability": "mutable",
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 881,
+                  "scope": 908,
                   "src": "204:18:6",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                    "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                     "typeString": "struct Files"
                   },
                   "typeName": {
-                    "id": 830,
+                    "id": 857,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 829,
+                      "id": 856,
                       "name": "Files",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 828,
+                      "referencedDeclaration": 855,
                       "src": "204:5:6"
                     },
-                    "referencedDeclaration": 828,
+                    "referencedDeclaration": 855,
                     "src": "204:5:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                      "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                       "typeString": "struct Files"
                     }
                   },
@@ -5605,46 +5605,46 @@
               "src": "203:20:6"
             },
             "returnParameters": {
-              "id": 837,
+              "id": 864,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 836,
+                  "id": 863,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 881,
+                  "scope": 908,
                   "src": "246:13:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct File[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 834,
+                      "id": 861,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 833,
+                        "id": 860,
                         "name": "File",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 816,
+                        "referencedDeclaration": 843,
                         "src": "246:4:6"
                       },
-                      "referencedDeclaration": 816,
+                      "referencedDeclaration": 843,
                       "src": "246:4:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$816_storage_ptr",
+                        "typeIdentifier": "t_struct$_File_$843_storage_ptr",
                         "typeString": "struct File"
                       }
                     },
-                    "id": 835,
+                    "id": 862,
                     "nodeType": "ArrayTypeName",
                     "src": "246:6:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$816_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$843_storage_$dyn_storage_ptr",
                       "typeString": "struct File[]"
                     }
                   },
@@ -5653,7 +5653,7 @@
               ],
               "src": "245:15:6"
             },
-            "scope": 1073,
+            "scope": 1100,
             "src": "186:284:6",
             "stateMutability": "view",
             "virtual": false,
@@ -5661,11 +5661,11 @@
           },
           {
             "anonymous": false,
-            "id": 883,
+            "id": 910,
             "name": "FileCreated",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 882,
+              "id": 909,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "493:2:6"
@@ -5674,58 +5674,58 @@
           },
           {
             "body": {
-              "id": 929,
+              "id": 956,
               "nodeType": "Block",
               "src": "653:318:6",
               "statements": [
                 {
                   "assignments": [
-                    901
+                    928
                   ],
                   "declarations": [
                     {
                       "constant": false,
-                      "id": 901,
+                      "id": 928,
                       "mutability": "mutable",
                       "name": "f",
                       "nodeType": "VariableDeclaration",
-                      "scope": 929,
+                      "scope": 956,
                       "src": "663:13:6",
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                        "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                         "typeString": "struct File"
                       },
                       "typeName": {
-                        "id": 900,
+                        "id": 927,
                         "nodeType": "UserDefinedTypeName",
                         "pathNode": {
-                          "id": 899,
+                          "id": 926,
                           "name": "File",
                           "nodeType": "IdentifierPath",
-                          "referencedDeclaration": 816,
+                          "referencedDeclaration": 843,
                           "src": "663:4:6"
                         },
-                        "referencedDeclaration": 816,
+                        "referencedDeclaration": 843,
                         "src": "663:4:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_File_$816_storage_ptr",
+                          "typeIdentifier": "t_struct$_File_$843_storage_ptr",
                           "typeString": "struct File"
                         }
                       },
                       "visibility": "internal"
                     }
                   ],
-                  "id": 909,
+                  "id": 936,
                   "initialValue": {
                     "arguments": [
                       {
-                        "id": 903,
+                        "id": 930,
                         "name": "name",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 888,
+                        "referencedDeclaration": 915,
                         "src": "717:4:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5733,11 +5733,11 @@
                         }
                       },
                       {
-                        "id": 904,
+                        "id": 931,
                         "name": "fileType",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 890,
+                        "referencedDeclaration": 917,
                         "src": "746:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5745,11 +5745,11 @@
                         }
                       },
                       {
-                        "id": 905,
+                        "id": 932,
                         "name": "ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 892,
+                        "referencedDeclaration": 919,
                         "src": "779:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5757,11 +5757,11 @@
                         }
                       },
                       {
-                        "id": 906,
+                        "id": 933,
                         "name": "key",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 894,
+                        "referencedDeclaration": 921,
                         "src": "807:3:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5769,11 +5769,11 @@
                         }
                       },
                       {
-                        "id": 907,
+                        "id": 934,
                         "name": "sharedBy",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 896,
+                        "referencedDeclaration": 923,
                         "src": "835:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -5804,18 +5804,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 902,
+                      "id": 929,
                       "name": "File",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 816,
+                      "referencedDeclaration": 843,
                       "src": "679:4:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_type$_t_struct$_File_$816_storage_ptr_$",
+                        "typeIdentifier": "t_type$_t_struct$_File_$843_storage_ptr_$",
                         "typeString": "type(struct File storage pointer)"
                       }
                     },
-                    "id": 908,
+                    "id": 935,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5832,7 +5832,7 @@
                     "src": "679:187:6",
                     "tryCall": false,
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                      "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                       "typeString": "struct File memory"
                     }
                   },
@@ -5841,7 +5841,7 @@
                 },
                 {
                   "expression": {
-                    "id": 916,
+                    "id": 943,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -5849,38 +5849,38 @@
                     "leftHandSide": {
                       "baseExpression": {
                         "expression": {
-                          "id": 910,
+                          "id": 937,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 886,
+                          "referencedDeclaration": 913,
                           "src": "876:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                            "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                             "typeString": "struct Files storage pointer"
                           }
                         },
-                        "id": 913,
+                        "id": 940,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "_files",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 824,
+                        "referencedDeclaration": 851,
                         "src": "876:11:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+                          "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
                           "typeString": "mapping(string memory => struct File storage ref)"
                         }
                       },
-                      "id": 914,
+                      "id": 941,
                       "indexExpression": {
-                        "id": 912,
+                        "id": 939,
                         "name": "ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 892,
+                        "referencedDeclaration": 919,
                         "src": "888:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5894,31 +5894,31 @@
                       "nodeType": "IndexAccess",
                       "src": "876:21:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$816_storage",
+                        "typeIdentifier": "t_struct$_File_$843_storage",
                         "typeString": "struct File storage ref"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 915,
+                      "id": 942,
                       "name": "f",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 901,
+                      "referencedDeclaration": 928,
                       "src": "900:1:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                        "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                         "typeString": "struct File memory"
                       }
                     },
                     "src": "876:25:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_File_$816_storage",
+                      "typeIdentifier": "t_struct$_File_$843_storage",
                       "typeString": "struct File storage ref"
                     }
                   },
-                  "id": 917,
+                  "id": 944,
                   "nodeType": "ExpressionStatement",
                   "src": "876:25:6"
                 },
@@ -5926,11 +5926,11 @@
                   "expression": {
                     "arguments": [
                       {
-                        "id": 923,
+                        "id": 950,
                         "name": "ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 892,
+                        "referencedDeclaration": 919,
                         "src": "927:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -5947,32 +5947,32 @@
                       ],
                       "expression": {
                         "expression": {
-                          "id": 918,
+                          "id": 945,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 886,
+                          "referencedDeclaration": 913,
                           "src": "911:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                            "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                             "typeString": "struct Files storage pointer"
                           }
                         },
-                        "id": 921,
+                        "id": 948,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "_keys",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 854,
                         "src": "911:10:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                           "typeString": "string storage ref[] storage ref"
                         }
                       },
-                      "id": 922,
+                      "id": 949,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -5985,7 +5985,7 @@
                         "typeString": "function (string storage ref)"
                       }
                     },
-                    "id": 924,
+                    "id": 951,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6000,7 +6000,7 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 925,
+                  "id": 952,
                   "nodeType": "ExpressionStatement",
                   "src": "911:25:6"
                 },
@@ -6009,18 +6009,18 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 926,
+                      "id": 953,
                       "name": "FileCreated",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 883,
+                      "referencedDeclaration": 910,
                       "src": "951:11:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
                         "typeString": "function ()"
                       }
                     },
-                    "id": 927,
+                    "id": 954,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6035,50 +6035,50 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 928,
+                  "id": 955,
                   "nodeType": "EmitStatement",
                   "src": "946:18:6"
                 }
               ]
             },
-            "id": 930,
+            "id": 957,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addFile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 897,
+              "id": 924,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 886,
+                  "id": 913,
                   "mutability": "mutable",
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 930,
+                  "scope": 957,
                   "src": "519:18:6",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                    "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                     "typeString": "struct Files"
                   },
                   "typeName": {
-                    "id": 885,
+                    "id": 912,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 884,
+                      "id": 911,
                       "name": "Files",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 828,
+                      "referencedDeclaration": 855,
                       "src": "519:5:6"
                     },
-                    "referencedDeclaration": 828,
+                    "referencedDeclaration": 855,
                     "src": "519:5:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                      "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                       "typeString": "struct Files"
                     }
                   },
@@ -6086,11 +6086,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 888,
+                  "id": 915,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 930,
+                  "scope": 957,
                   "src": "539:18:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -6099,7 +6099,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 887,
+                    "id": 914,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "539:6:6",
@@ -6112,11 +6112,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 890,
+                  "id": 917,
                   "mutability": "mutable",
                   "name": "fileType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 930,
+                  "scope": 957,
                   "src": "559:22:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -6125,7 +6125,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 889,
+                    "id": 916,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "559:6:6",
@@ -6138,11 +6138,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 892,
+                  "id": 919,
                   "mutability": "mutable",
                   "name": "ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 930,
+                  "scope": 957,
                   "src": "583:22:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -6151,7 +6151,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 891,
+                    "id": 918,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "583:6:6",
@@ -6164,11 +6164,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 894,
+                  "id": 921,
                   "mutability": "mutable",
                   "name": "key",
                   "nodeType": "VariableDeclaration",
-                  "scope": 930,
+                  "scope": 957,
                   "src": "607:17:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -6177,7 +6177,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 893,
+                    "id": 920,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "607:6:6",
@@ -6190,11 +6190,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 896,
+                  "id": 923,
                   "mutability": "mutable",
                   "name": "sharedBy",
                   "nodeType": "VariableDeclaration",
-                  "scope": 930,
+                  "scope": 957,
                   "src": "626:16:6",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -6203,7 +6203,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 895,
+                    "id": 922,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "626:7:6",
@@ -6219,12 +6219,12 @@
               "src": "518:125:6"
             },
             "returnParameters": {
-              "id": 898,
+              "id": 925,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "653:0:6"
             },
-            "scope": 1073,
+            "scope": 1100,
             "src": "502:469:6",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -6232,11 +6232,11 @@
           },
           {
             "anonymous": false,
-            "id": 932,
+            "id": 959,
             "name": "FileDeleted",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 931,
+              "id": 958,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "994:2:6"
@@ -6245,7 +6245,7 @@
           },
           {
             "body": {
-              "id": 1018,
+              "id": 1045,
               "nodeType": "Block",
               "src": "1075:481:6",
               "statements": [
@@ -6257,7 +6257,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 951,
+                        "id": 978,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -6269,38 +6269,38 @@
                                 "expression": {
                                   "baseExpression": {
                                     "expression": {
-                                      "id": 943,
+                                      "id": 970,
                                       "name": "self",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 935,
+                                      "referencedDeclaration": 962,
                                       "src": "1110:4:6",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                        "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                         "typeString": "struct Files storage pointer"
                                       }
                                     },
-                                    "id": 944,
+                                    "id": 971,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "_files",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 824,
+                                    "referencedDeclaration": 851,
                                     "src": "1110:11:6",
                                     "typeDescriptions": {
-                                      "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+                                      "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
                                       "typeString": "mapping(string memory => struct File storage ref)"
                                     }
                                   },
-                                  "id": 946,
+                                  "id": 973,
                                   "indexExpression": {
-                                    "id": 945,
+                                    "id": 972,
                                     "name": "ipfsHash",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 937,
+                                    "referencedDeclaration": 964,
                                     "src": "1122:8:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_string_memory_ptr",
@@ -6314,18 +6314,18 @@
                                   "nodeType": "IndexAccess",
                                   "src": "1110:21:6",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_File_$816_storage",
+                                    "typeIdentifier": "t_struct$_File_$843_storage",
                                     "typeString": "struct File storage ref"
                                   }
                                 },
-                                "id": 947,
+                                "id": 974,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "memberName": "_ipfsHash",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 811,
+                                "referencedDeclaration": 838,
                                 "src": "1110:31:6",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_string_storage",
@@ -6341,7 +6341,7 @@
                                 }
                               ],
                               "expression": {
-                                "id": 941,
+                                "id": 968,
                                 "name": "abi",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
@@ -6352,7 +6352,7 @@
                                   "typeString": "abi"
                                 }
                               },
-                              "id": 942,
+                              "id": 969,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
@@ -6365,7 +6365,7 @@
                                 "typeString": "function () pure returns (bytes memory)"
                               }
                             },
-                            "id": 948,
+                            "id": 975,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -6380,7 +6380,7 @@
                               "typeString": "bytes memory"
                             }
                           },
-                          "id": 949,
+                          "id": 976,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -6397,7 +6397,7 @@
                         "operator": ">",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 950,
+                          "id": 977,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -6419,7 +6419,7 @@
                       },
                       {
                         "hexValue": "494f42",
-                        "id": 952,
+                        "id": 979,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -6445,7 +6445,7 @@
                           "typeString": "literal_string \"IOB\""
                         }
                       ],
-                      "id": 940,
+                      "id": 967,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -6459,7 +6459,7 @@
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 953,
+                    "id": 980,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6474,13 +6474,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 954,
+                  "id": 981,
                   "nodeType": "ExpressionStatement",
                   "src": "1085:77:6"
                 },
                 {
                   "expression": {
-                    "id": 959,
+                    "id": 986,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -6492,38 +6492,38 @@
                     "subExpression": {
                       "baseExpression": {
                         "expression": {
-                          "id": 955,
+                          "id": 982,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 935,
+                          "referencedDeclaration": 962,
                           "src": "1179:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                            "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                             "typeString": "struct Files storage pointer"
                           }
                         },
-                        "id": 956,
+                        "id": 983,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "_files",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 824,
+                        "referencedDeclaration": 851,
                         "src": "1179:11:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+                          "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
                           "typeString": "mapping(string memory => struct File storage ref)"
                         }
                       },
-                      "id": 958,
+                      "id": 985,
                       "indexExpression": {
-                        "id": 957,
+                        "id": 984,
                         "name": "ipfsHash",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 937,
+                        "referencedDeclaration": 964,
                         "src": "1191:8:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_string_memory_ptr",
@@ -6537,7 +6537,7 @@
                       "nodeType": "IndexAccess",
                       "src": "1179:21:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$816_storage",
+                        "typeIdentifier": "t_struct$_File_$843_storage",
                         "typeString": "struct File storage ref"
                       }
                     },
@@ -6546,13 +6546,13 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 960,
+                  "id": 987,
                   "nodeType": "ExpressionStatement",
                   "src": "1172:28:6"
                 },
                 {
                   "body": {
-                    "id": 1013,
+                    "id": 1040,
                     "nodeType": "Block",
                     "src": "1255:267:6",
                     "statements": [
@@ -6562,7 +6562,7 @@
                             "typeIdentifier": "t_bytes32",
                             "typeString": "bytes32"
                           },
-                          "id": 988,
+                          "id": 1015,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -6574,38 +6574,38 @@
                                   {
                                     "baseExpression": {
                                       "expression": {
-                                        "id": 976,
+                                        "id": 1003,
                                         "name": "self",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 935,
+                                        "referencedDeclaration": 962,
                                         "src": "1300:4:6",
                                         "typeDescriptions": {
-                                          "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                          "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                           "typeString": "struct Files storage pointer"
                                         }
                                       },
-                                      "id": 977,
+                                      "id": 1004,
                                       "isConstant": false,
                                       "isLValue": true,
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "memberName": "_keys",
                                       "nodeType": "MemberAccess",
-                                      "referencedDeclaration": 827,
+                                      "referencedDeclaration": 854,
                                       "src": "1300:10:6",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                         "typeString": "string storage ref[] storage ref"
                                       }
                                     },
-                                    "id": 979,
+                                    "id": 1006,
                                     "indexExpression": {
-                                      "id": 978,
+                                      "id": 1005,
                                       "name": "i",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 962,
+                                      "referencedDeclaration": 989,
                                       "src": "1311:1:6",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_uint256",
@@ -6632,7 +6632,7 @@
                                     }
                                   ],
                                   "expression": {
-                                    "id": 974,
+                                    "id": 1001,
                                     "name": "abi",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
@@ -6643,7 +6643,7 @@
                                       "typeString": "abi"
                                     }
                                   },
-                                  "id": 975,
+                                  "id": 1002,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -6656,7 +6656,7 @@
                                     "typeString": "function () pure returns (bytes memory)"
                                   }
                                 },
-                                "id": 980,
+                                "id": 1007,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -6679,7 +6679,7 @@
                                   "typeString": "bytes memory"
                                 }
                               ],
-                              "id": 973,
+                              "id": 1000,
                               "name": "keccak256",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
@@ -6690,7 +6690,7 @@
                                 "typeString": "function (bytes memory) pure returns (bytes32)"
                               }
                             },
-                            "id": 981,
+                            "id": 1008,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -6712,11 +6712,11 @@
                               {
                                 "arguments": [
                                   {
-                                    "id": 985,
+                                    "id": 1012,
                                     "name": "ipfsHash",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 937,
+                                    "referencedDeclaration": 964,
                                     "src": "1346:8:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_string_memory_ptr",
@@ -6732,7 +6732,7 @@
                                     }
                                   ],
                                   "expression": {
-                                    "id": 983,
+                                    "id": 1010,
                                     "name": "abi",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
@@ -6743,7 +6743,7 @@
                                       "typeString": "abi"
                                     }
                                   },
-                                  "id": 984,
+                                  "id": 1011,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
@@ -6756,7 +6756,7 @@
                                     "typeString": "function () pure returns (bytes memory)"
                                   }
                                 },
-                                "id": 986,
+                                "id": 1013,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -6779,7 +6779,7 @@
                                   "typeString": "bytes memory"
                                 }
                               ],
-                              "id": 982,
+                              "id": 1009,
                               "name": "keccak256",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
@@ -6790,7 +6790,7 @@
                                 "typeString": "function (bytes memory) pure returns (bytes32)"
                               }
                             },
-                            "id": 987,
+                            "id": 1014,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -6811,17 +6811,17 @@
                             "typeString": "bool"
                           }
                         },
-                        "id": 1012,
+                        "id": 1039,
                         "nodeType": "IfStatement",
                         "src": "1269:243:6",
                         "trueBody": {
-                          "id": 1011,
+                          "id": 1038,
                           "nodeType": "Block",
                           "src": "1358:154:6",
                           "statements": [
                             {
                               "expression": {
-                                "id": 1002,
+                                "id": 1029,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -6829,38 +6829,38 @@
                                 "leftHandSide": {
                                   "baseExpression": {
                                     "expression": {
-                                      "id": 989,
+                                      "id": 1016,
                                       "name": "self",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 935,
+                                      "referencedDeclaration": 962,
                                       "src": "1416:4:6",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                        "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                         "typeString": "struct Files storage pointer"
                                       }
                                     },
-                                    "id": 992,
+                                    "id": 1019,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "_keys",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 827,
+                                    "referencedDeclaration": 854,
                                     "src": "1416:10:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                       "typeString": "string storage ref[] storage ref"
                                     }
                                   },
-                                  "id": 993,
+                                  "id": 1020,
                                   "indexExpression": {
-                                    "id": 991,
+                                    "id": 1018,
                                     "name": "i",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 962,
+                                    "referencedDeclaration": 989,
                                     "src": "1427:1:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_uint256",
@@ -6883,38 +6883,38 @@
                                 "rightHandSide": {
                                   "baseExpression": {
                                     "expression": {
-                                      "id": 994,
+                                      "id": 1021,
                                       "name": "self",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 935,
+                                      "referencedDeclaration": 962,
                                       "src": "1432:4:6",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                        "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                         "typeString": "struct Files storage pointer"
                                       }
                                     },
-                                    "id": 995,
+                                    "id": 1022,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "_keys",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 827,
+                                    "referencedDeclaration": 854,
                                     "src": "1432:10:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                       "typeString": "string storage ref[] storage ref"
                                     }
                                   },
-                                  "id": 1001,
+                                  "id": 1028,
                                   "indexExpression": {
                                     "commonType": {
                                       "typeIdentifier": "t_uint256",
                                       "typeString": "uint256"
                                     },
-                                    "id": 1000,
+                                    "id": 1027,
                                     "isConstant": false,
                                     "isLValue": false,
                                     "isPure": false,
@@ -6922,32 +6922,32 @@
                                     "leftExpression": {
                                       "expression": {
                                         "expression": {
-                                          "id": 996,
+                                          "id": 1023,
                                           "name": "self",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 935,
+                                          "referencedDeclaration": 962,
                                           "src": "1443:4:6",
                                           "typeDescriptions": {
-                                            "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                            "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                             "typeString": "struct Files storage pointer"
                                           }
                                         },
-                                        "id": 997,
+                                        "id": 1024,
                                         "isConstant": false,
                                         "isLValue": true,
                                         "isPure": false,
                                         "lValueRequested": false,
                                         "memberName": "_keys",
                                         "nodeType": "MemberAccess",
-                                        "referencedDeclaration": 827,
+                                        "referencedDeclaration": 854,
                                         "src": "1443:10:6",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                           "typeString": "string storage ref[] storage ref"
                                         }
                                       },
-                                      "id": 998,
+                                      "id": 1025,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": false,
@@ -6964,7 +6964,7 @@
                                     "operator": "-",
                                     "rightExpression": {
                                       "hexValue": "31",
-                                      "id": 999,
+                                      "id": 1026,
                                       "isConstant": false,
                                       "isLValue": false,
                                       "isPure": true,
@@ -7001,7 +7001,7 @@
                                   "typeString": "string storage ref"
                                 }
                               },
-                              "id": 1003,
+                              "id": 1030,
                               "nodeType": "ExpressionStatement",
                               "src": "1416:47:6"
                             },
@@ -7012,32 +7012,32 @@
                                   "argumentTypes": [],
                                   "expression": {
                                     "expression": {
-                                      "id": 1004,
+                                      "id": 1031,
                                       "name": "self",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 935,
+                                      "referencedDeclaration": 962,
                                       "src": "1481:4:6",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                        "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                         "typeString": "struct Files storage pointer"
                                       }
                                     },
-                                    "id": 1007,
+                                    "id": 1034,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
                                     "memberName": "_keys",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 827,
+                                    "referencedDeclaration": 854,
                                     "src": "1481:10:6",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                       "typeString": "string storage ref[] storage ref"
                                     }
                                   },
-                                  "id": 1008,
+                                  "id": 1035,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": false,
@@ -7050,7 +7050,7 @@
                                     "typeString": "function ()"
                                   }
                                 },
-                                "id": 1009,
+                                "id": 1036,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
@@ -7065,7 +7065,7 @@
                                   "typeString": "tuple()"
                                 }
                               },
-                              "id": 1010,
+                              "id": 1037,
                               "nodeType": "ExpressionStatement",
                               "src": "1481:16:6"
                             }
@@ -7079,17 +7079,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 969,
+                    "id": 996,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 965,
+                      "id": 992,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 962,
+                      "referencedDeclaration": 989,
                       "src": "1227:1:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -7101,32 +7101,32 @@
                     "rightExpression": {
                       "expression": {
                         "expression": {
-                          "id": 966,
+                          "id": 993,
                           "name": "self",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 935,
+                          "referencedDeclaration": 962,
                           "src": "1231:4:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                            "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                             "typeString": "struct Files storage pointer"
                           }
                         },
-                        "id": 967,
+                        "id": 994,
                         "isConstant": false,
                         "isLValue": true,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "_keys",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 827,
+                        "referencedDeclaration": 854,
                         "src": "1231:10:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                           "typeString": "string storage ref[] storage ref"
                         }
                       },
-                      "id": 968,
+                      "id": 995,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -7145,19 +7145,19 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1014,
+                  "id": 1041,
                   "initializationExpression": {
                     "assignments": [
-                      962
+                      989
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 962,
+                        "id": 989,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 1014,
+                        "scope": 1041,
                         "src": "1215:6:6",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -7166,7 +7166,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 961,
+                          "id": 988,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
                           "src": "1215:4:6",
@@ -7178,10 +7178,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 964,
+                    "id": 991,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 963,
+                      "id": 990,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -7200,7 +7200,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 971,
+                      "id": 998,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -7210,11 +7210,11 @@
                       "prefix": false,
                       "src": "1250:3:6",
                       "subExpression": {
-                        "id": 970,
+                        "id": 997,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 962,
+                        "referencedDeclaration": 989,
                         "src": "1250:1:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -7226,7 +7226,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 972,
+                    "id": 999,
                     "nodeType": "ExpressionStatement",
                     "src": "1250:3:6"
                   },
@@ -7238,18 +7238,18 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 1015,
+                      "id": 1042,
                       "name": "FileDeleted",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 932,
+                      "referencedDeclaration": 959,
                       "src": "1536:11:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
                         "typeString": "function ()"
                       }
                     },
-                    "id": 1016,
+                    "id": 1043,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -7264,50 +7264,50 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1017,
+                  "id": 1044,
                   "nodeType": "EmitStatement",
                   "src": "1531:18:6"
                 }
               ]
             },
-            "id": 1019,
+            "id": 1046,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "deleteFile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 938,
+              "id": 965,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 935,
+                  "id": 962,
                   "mutability": "mutable",
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1019,
+                  "scope": 1046,
                   "src": "1022:18:6",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                    "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                     "typeString": "struct Files"
                   },
                   "typeName": {
-                    "id": 934,
+                    "id": 961,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 933,
+                      "id": 960,
                       "name": "Files",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 828,
+                      "referencedDeclaration": 855,
                       "src": "1022:5:6"
                     },
-                    "referencedDeclaration": 828,
+                    "referencedDeclaration": 855,
                     "src": "1022:5:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                      "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                       "typeString": "struct Files"
                     }
                   },
@@ -7315,11 +7315,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 937,
+                  "id": 964,
                   "mutability": "mutable",
                   "name": "ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1019,
+                  "scope": 1046,
                   "src": "1042:22:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -7328,7 +7328,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 936,
+                    "id": 963,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "1042:6:6",
@@ -7343,12 +7343,12 @@
               "src": "1021:44:6"
             },
             "returnParameters": {
-              "id": 939,
+              "id": 966,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1075:0:6"
             },
-            "scope": 1073,
+            "scope": 1100,
             "src": "1002:554:6",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -7356,11 +7356,11 @@
           },
           {
             "anonymous": false,
-            "id": 1021,
+            "id": 1048,
             "name": "FilesImported",
             "nodeType": "EventDefinition",
             "parameters": {
-              "id": 1020,
+              "id": 1047,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1581:2:6"
@@ -7369,19 +7369,19 @@
           },
           {
             "body": {
-              "id": 1071,
+              "id": 1098,
               "nodeType": "Block",
               "src": "1659:206:6",
               "statements": [
                 {
                   "body": {
-                    "id": 1066,
+                    "id": 1093,
                     "nodeType": "Block",
                     "src": "1710:119:6",
                     "statements": [
                       {
                         "expression": {
-                          "id": 1053,
+                          "id": 1080,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -7389,53 +7389,53 @@
                           "leftHandSide": {
                             "baseExpression": {
                               "expression": {
-                                "id": 1042,
+                                "id": 1069,
                                 "name": "self",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1024,
+                                "referencedDeclaration": 1051,
                                 "src": "1724:4:6",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                  "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                   "typeString": "struct Files storage pointer"
                                 }
                               },
-                              "id": 1048,
+                              "id": 1075,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "_files",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 824,
+                              "referencedDeclaration": 851,
                               "src": "1724:11:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$816_storage_$",
+                                "typeIdentifier": "t_mapping$_t_string_memory_ptr_$_t_struct$_File_$843_storage_$",
                                 "typeString": "mapping(string memory => struct File storage ref)"
                               }
                             },
-                            "id": 1049,
+                            "id": 1076,
                             "indexExpression": {
                               "expression": {
                                 "baseExpression": {
-                                  "id": 1044,
+                                  "id": 1071,
                                   "name": "_files",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1028,
+                                  "referencedDeclaration": 1055,
                                   "src": "1736:6:6",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                                    "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                                     "typeString": "struct File memory[] memory"
                                   }
                                 },
-                                "id": 1046,
+                                "id": 1073,
                                 "indexExpression": {
-                                  "id": 1045,
+                                  "id": 1072,
                                   "name": "i",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1032,
+                                  "referencedDeclaration": 1059,
                                   "src": "1743:1:6",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -7449,18 +7449,18 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1736:9:6",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                                  "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                                   "typeString": "struct File memory"
                                 }
                               },
-                              "id": 1047,
+                              "id": 1074,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "_ipfsHash",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 811,
+                              "referencedDeclaration": 838,
                               "src": "1736:19:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_string_memory_ptr",
@@ -7474,7 +7474,7 @@
                             "nodeType": "IndexAccess",
                             "src": "1724:32:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_File_$816_storage",
+                              "typeIdentifier": "t_struct$_File_$843_storage",
                               "typeString": "struct File storage ref"
                             }
                           },
@@ -7482,24 +7482,24 @@
                           "operator": "=",
                           "rightHandSide": {
                             "baseExpression": {
-                              "id": 1050,
+                              "id": 1077,
                               "name": "_files",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1028,
+                              "referencedDeclaration": 1055,
                               "src": "1759:6:6",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                                "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                                 "typeString": "struct File memory[] memory"
                               }
                             },
-                            "id": 1052,
+                            "id": 1079,
                             "indexExpression": {
-                              "id": 1051,
+                              "id": 1078,
                               "name": "i",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1032,
+                              "referencedDeclaration": 1059,
                               "src": "1766:1:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_uint256",
@@ -7513,17 +7513,17 @@
                             "nodeType": "IndexAccess",
                             "src": "1759:9:6",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                              "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                               "typeString": "struct File memory"
                             }
                           },
                           "src": "1724:44:6",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_struct$_File_$816_storage",
+                            "typeIdentifier": "t_struct$_File_$843_storage",
                             "typeString": "struct File storage ref"
                           }
                         },
-                        "id": 1054,
+                        "id": 1081,
                         "nodeType": "ExpressionStatement",
                         "src": "1724:44:6"
                       },
@@ -7533,24 +7533,24 @@
                             {
                               "expression": {
                                 "baseExpression": {
-                                  "id": 1060,
+                                  "id": 1087,
                                   "name": "_files",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1028,
+                                  "referencedDeclaration": 1055,
                                   "src": "1798:6:6",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                                    "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                                     "typeString": "struct File memory[] memory"
                                   }
                                 },
-                                "id": 1062,
+                                "id": 1089,
                                 "indexExpression": {
-                                  "id": 1061,
+                                  "id": 1088,
                                   "name": "i",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 1032,
+                                  "referencedDeclaration": 1059,
                                   "src": "1805:1:6",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_uint256",
@@ -7564,18 +7564,18 @@
                                 "nodeType": "IndexAccess",
                                 "src": "1798:9:6",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_File_$816_memory_ptr",
+                                  "typeIdentifier": "t_struct$_File_$843_memory_ptr",
                                   "typeString": "struct File memory"
                                 }
                               },
-                              "id": 1063,
+                              "id": 1090,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "_ipfsHash",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 811,
+                              "referencedDeclaration": 838,
                               "src": "1798:19:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_string_memory_ptr",
@@ -7592,32 +7592,32 @@
                             ],
                             "expression": {
                               "expression": {
-                                "id": 1055,
+                                "id": 1082,
                                 "name": "self",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 1024,
+                                "referencedDeclaration": 1051,
                                 "src": "1782:4:6",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                                  "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                                   "typeString": "struct Files storage pointer"
                                 }
                               },
-                              "id": 1058,
+                              "id": 1085,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
                               "memberName": "_keys",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 827,
+                              "referencedDeclaration": 854,
                               "src": "1782:10:6",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_array$_t_string_storage_$dyn_storage",
                                 "typeString": "string storage ref[] storage ref"
                               }
                             },
-                            "id": 1059,
+                            "id": 1086,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -7630,7 +7630,7 @@
                               "typeString": "function (string storage ref)"
                             }
                           },
-                          "id": 1064,
+                          "id": 1091,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -7645,7 +7645,7 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 1065,
+                        "id": 1092,
                         "nodeType": "ExpressionStatement",
                         "src": "1782:36:6"
                       }
@@ -7656,17 +7656,17 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 1038,
+                    "id": 1065,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 1035,
+                      "id": 1062,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1032,
+                      "referencedDeclaration": 1059,
                       "src": "1686:1:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -7677,18 +7677,18 @@
                     "operator": "<",
                     "rightExpression": {
                       "expression": {
-                        "id": 1036,
+                        "id": 1063,
                         "name": "_files",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1028,
+                        "referencedDeclaration": 1055,
                         "src": "1690:6:6",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                          "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                           "typeString": "struct File memory[] memory"
                         }
                       },
-                      "id": 1037,
+                      "id": 1064,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -7707,19 +7707,19 @@
                       "typeString": "bool"
                     }
                   },
-                  "id": 1067,
+                  "id": 1094,
                   "initializationExpression": {
                     "assignments": [
-                      1032
+                      1059
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 1032,
+                        "id": 1059,
                         "mutability": "mutable",
                         "name": "i",
                         "nodeType": "VariableDeclaration",
-                        "scope": 1067,
+                        "scope": 1094,
                         "src": "1674:6:6",
                         "stateVariable": false,
                         "storageLocation": "default",
@@ -7728,7 +7728,7 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 1031,
+                          "id": 1058,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
                           "src": "1674:4:6",
@@ -7740,10 +7740,10 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 1034,
+                    "id": 1061,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 1033,
+                      "id": 1060,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -7762,7 +7762,7 @@
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 1040,
+                      "id": 1067,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -7772,11 +7772,11 @@
                       "prefix": false,
                       "src": "1705:3:6",
                       "subExpression": {
-                        "id": 1039,
+                        "id": 1066,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1032,
+                        "referencedDeclaration": 1059,
                         "src": "1705:1:6",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
@@ -7788,7 +7788,7 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 1041,
+                    "id": 1068,
                     "nodeType": "ExpressionStatement",
                     "src": "1705:3:6"
                   },
@@ -7800,18 +7800,18 @@
                     "arguments": [],
                     "expression": {
                       "argumentTypes": [],
-                      "id": 1068,
+                      "id": 1095,
                       "name": "FilesImported",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 1021,
+                      "referencedDeclaration": 1048,
                       "src": "1843:13:6",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_event_nonpayable$__$returns$__$",
                         "typeString": "function ()"
                       }
                     },
-                    "id": 1069,
+                    "id": 1096,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -7826,51 +7826,51 @@
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 1070,
+                  "id": 1097,
                   "nodeType": "EmitStatement",
                   "src": "1838:20:6"
                 }
               ]
             },
             "functionSelector": "16739215",
-            "id": 1072,
+            "id": 1099,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "migrateFiles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 1029,
+              "id": 1056,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 1024,
+                  "id": 1051,
                   "mutability": "mutable",
                   "name": "self",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1072,
+                  "scope": 1099,
                   "src": "1611:18:6",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                    "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                     "typeString": "struct Files"
                   },
                   "typeName": {
-                    "id": 1023,
+                    "id": 1050,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 1022,
+                      "id": 1049,
                       "name": "Files",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 828,
+                      "referencedDeclaration": 855,
                       "src": "1611:5:6"
                     },
-                    "referencedDeclaration": 828,
+                    "referencedDeclaration": 855,
                     "src": "1611:5:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Files_$828_storage_ptr",
+                      "typeIdentifier": "t_struct$_Files_$855_storage_ptr",
                       "typeString": "struct Files"
                     }
                   },
@@ -7878,41 +7878,41 @@
                 },
                 {
                   "constant": false,
-                  "id": 1028,
+                  "id": 1055,
                   "mutability": "mutable",
                   "name": "_files",
                   "nodeType": "VariableDeclaration",
-                  "scope": 1072,
+                  "scope": 1099,
                   "src": "1631:20:6",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_File_$816_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_File_$843_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct File[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 1026,
+                      "id": 1053,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 1025,
+                        "id": 1052,
                         "name": "File",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 816,
+                        "referencedDeclaration": 843,
                         "src": "1631:4:6"
                       },
-                      "referencedDeclaration": 816,
+                      "referencedDeclaration": 843,
                       "src": "1631:4:6",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$816_storage_ptr",
+                        "typeIdentifier": "t_struct$_File_$843_storage_ptr",
                         "typeString": "struct File"
                       }
                     },
-                    "id": 1027,
+                    "id": 1054,
                     "nodeType": "ArrayTypeName",
                     "src": "1631:6:6",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$816_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$843_storage_$dyn_storage_ptr",
                       "typeString": "struct File[]"
                     }
                   },
@@ -7922,19 +7922,19 @@
               "src": "1610:42:6"
             },
             "returnParameters": {
-              "id": 1030,
+              "id": 1057,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1659:0:6"
             },
-            "scope": 1073,
+            "scope": 1100,
             "src": "1589:276:6",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           }
         ],
-        "scope": 1074,
+        "scope": 1101,
         "src": "160:1707:6"
       }
     ],
@@ -7967,12 +7967,12 @@
         }
       },
       "links": {},
-      "address": "0xe62A92e33EEd2Ba9f242d976823B31a2aBE9EEA3",
-      "transactionHash": "0x6df0e922856eedb23433b0c07f8ed55c44a0c26b9cb755bdc93f8269f6eb44ba"
+      "address": "0x3B0365c6b6D763C11Bc4F78ee4a79D7532b070CE",
+      "transactionHash": "0xa54cf25a8e65caaf0a7103b250a0944bed8ac25721a3ec4be1c6fe3a9645fff3"
     }
   },
   "schemaVersion": "3.4.11",
-  "updatedAt": "2023-07-18T13:24:53.455Z",
+  "updatedAt": "2023-07-18T13:49:53.313Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
