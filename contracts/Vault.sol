@@ -25,7 +25,11 @@ contract Vault is Ownable {
     }
 
     function createFile(string memory name, string memory fileType, string memory ipfsHash, string memory key) external onlyOwnerOrCreator {
-        files.addFile(name, fileType, ipfsHash, key);
+        files.addFile(name, fileType, ipfsHash, key, address(0));
+    }
+
+    function addSharedFile(string memory name, string memory fileType, string memory ipfsHash, string memory key, address sharedBy) external onlyOwnerOrCreator {
+        files.addFile(name, fileType, ipfsHash, key, sharedBy);
     }
 
     event FileDeleted();

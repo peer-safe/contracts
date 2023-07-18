@@ -7,4 +7,5 @@ struct File {
     string _fileType;
     string _ipfsHash;
     string _key;
+    address _sharedBy;
 }

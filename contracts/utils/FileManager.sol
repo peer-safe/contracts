@@ -19,13 +19,14 @@ library FileManager {
 
     event FileCreated();
 
-    function addFile(Files storage self, string memory name, string memory fileType, string memory ipfsHash, string memory key) internal {
+    function addFile(Files storage self, string memory name, string memory fileType, string memory ipfsHash, string memory key, address sharedBy) internal {
         File memory f = File(
            {
             _name: name,
             _fileType: fileType,
             _ipfsHash: ipfsHash,
-            _key: key
+            _key: key,
+            _sharedBy: sharedBy
            }
         );
         self._files[ipfsHash] = f;

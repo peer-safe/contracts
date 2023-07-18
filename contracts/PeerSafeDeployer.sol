@@ -76,7 +76,7 @@ contract PeerSafeDeployer is Ownable {
         require(users[signer].pubKey.length != 0, "ERR691");
         IVault _vault = users[signer].vault;
         ShareRequest memory _shareRequest = shareRequests._shareRequests[signer][_fileHash];
-        _vault.createFile(_shareRequest._name, _shareRequest._fileType, _shareRequest._fileHash, _shareRequest._keyHash);
+        _vault.addSharedFile(_shareRequest._name, _shareRequest._fileType, _shareRequest._fileHash, _shareRequest._keyHash, _shareRequest._from);
         shareRequests.deleteShareRequest(signer, _fileHash);
     }
 

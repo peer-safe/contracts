@@ -26,6 +26,11 @@
               "internalType": "string",
               "name": "_key",
               "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "_sharedBy",
+              "type": "address"
             }
           ],
           "internalType": "struct File[]",
@@ -60,6 +65,39 @@
         }
       ],
       "name": "createFile",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "fileType",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "ipfsHash",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "key",
+          "type": "string"
+        },
+        {
+          "internalType": "address",
+          "name": "sharedBy",
+          "type": "address"
+        }
+      ],
+      "name": "addSharedFile",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -120,6 +158,11 @@
               "internalType": "string",
               "name": "_key",
               "type": "string"
+            },
+            {
+              "internalType": "address",
+              "name": "_sharedBy",
+              "type": "address"
             }
           ],
           "internalType": "struct File[]",
@@ -172,7 +215,7 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\"}],\"name\":\"createFile\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"}],\"name\":\"deleteFile\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllFiles\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_key\",\"type\":\"string\"}],\"internalType\":\"struct File[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getUser\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hashedMessage\",\"type\":\"bytes32\"},{\"internalType\":\"uint8\",\"name\":\"_v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"_s\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_key\",\"type\":\"string\"}],\"internalType\":\"struct File[]\",\"name\":\"_files\",\"type\":\"tuple[]\"}],\"name\":\"migrateFiles\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IVault.sol\":\"IVault\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IVault.sol\":{\"keccak256\":\"0x59531a9cfea6446ef5cc31b323e85d99dd8f88ffb7933aad73c336a92e76d1f7\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://e518dddb0840125440a4cc5556ba546e682b9c248ba611f0ab2813e8d03666ed\",\"dweb:/ipfs/QmYGgmHpMriP5afUErLxEo198UGXQ5DrstwYu2eSqxyNoi\"]},\"project:/contracts/utils/File.sol\":{\"keccak256\":\"0x75c1b01b7803a8ee8ed4eb05f74759eac7e1a2bd2431657d6d04f1316da9e593\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://882ea3fb542f89b32ae14b55ce613d65230069fce6cd0452863011f75d7cb61e\",\"dweb:/ipfs/QmQeCXduh2fsJvUiSjqvSVXTLkvTEfP2Y9hA8HqxjDUxaT\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"sharedBy\",\"type\":\"address\"}],\"name\":\"addSharedFile\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"key\",\"type\":\"string\"}],\"name\":\"createFile\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"ipfsHash\",\"type\":\"string\"}],\"name\":\"deleteFile\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAllFiles\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_key\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_sharedBy\",\"type\":\"address\"}],\"internalType\":\"struct File[]\",\"name\":\"\",\"type\":\"tuple[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCreator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getOwner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getUser\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"_hashedMessage\",\"type\":\"bytes32\"},{\"internalType\":\"uint8\",\"name\":\"_v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"_r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"_s\",\"type\":\"bytes32\"},{\"components\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_fileType\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_ipfsHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_key\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"_sharedBy\",\"type\":\"address\"}],\"internalType\":\"struct File[]\",\"name\":\"_files\",\"type\":\"tuple[]\"}],\"name\":\"migrateFiles\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IVault.sol\":\"IVault\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IVault.sol\":{\"keccak256\":\"0xd6615fc308df0f90e62ea6b81093878e287d679583d61c0a61e89d34114c1e55\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://3d9ab4f900cc01b3e3cee27ccefa9f96214151adcfc2d0f6fc9fe18ed196a54a\",\"dweb:/ipfs/QmVeDu3pL3YuXHr3QEgoxMWvduaYyTUNrGsvgg3bNvnnmi\"]},\"project:/contracts/utils/File.sol\":{\"keccak256\":\"0x5edfeca07f20fa0c60602b7e51c2dc02e4005415f9c8b9818addd4b2f7d04d7f\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://05f3db110d914ab94e8796ef9a9a0ba24ddd3b0264a41be390c5b9cc8cf2b186\",\"dweb:/ipfs/QmNMRVkWnMgNF8RrEU6rmd3AXfPWyHXKxfDJivZM94h6ef\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
@@ -180,24 +223,24 @@
   "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.0;\n\nimport \"../utils/File.sol\";\n\n\ninterface IVault {\n    function getAllFiles() external view returns(File[] memory);\n    function createFile(string memory name, string memory fileType, string memory ipfsHash, string memory key) external;\n    function deleteFile(string memory ipfsHash) external;\n    function migrateFiles(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, File[] memory _files) external;\n    function getOwner() external view returns (address);\n    function getCreator() external view returns (address);\n    function getUser() external view returns(string memory);\n}",
+  "source": "// SPDX-License-Identifier: UNLICENSED\npragma solidity ^0.8.0;\n\nimport \"../utils/File.sol\";\n\n\ninterface IVault {\n    function getAllFiles() external view returns(File[] memory);\n    function createFile(string memory name, string memory fileType, string memory ipfsHash, string memory key) external;\n    function addSharedFile(string memory name, string memory fileType, string memory ipfsHash, string memory key, address sharedBy) external;\n    function deleteFile(string memory ipfsHash) external;\n    function migrateFiles(bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, File[] memory _files) external;\n    function getOwner() external view returns (address);\n    function getCreator() external view returns (address);\n    function getUser() external view returns(string memory);\n}",
   "sourcePath": "/Users/shubhaankar/github.com/peer-safe/contracts/contracts/interfaces/IVault.sol",
   "ast": {
     "absolutePath": "project:/contracts/interfaces/IVault.sol",
     "exportedSymbols": {
       "File": [
-        767
+        814
       ],
       "IVault": [
-        744
+        789
       ]
     },
-    "id": 745,
+    "id": 790,
     "license": "UNLICENSED",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 689,
+        "id": 721,
         "literals": [
           "solidity",
           "^",
@@ -210,10 +253,10 @@
       {
         "absolutePath": "project:/contracts/utils/File.sol",
         "file": "../utils/File.sol",
-        "id": 690,
+        "id": 722,
         "nodeType": "ImportDirective",
-        "scope": 745,
-        "sourceUnit": 768,
+        "scope": 790,
+        "sourceUnit": 815,
         "src": "64:27:3",
         "symbolAliases": [],
         "unitAlias": ""
@@ -224,68 +267,68 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "fullyImplemented": false,
-        "id": 744,
+        "id": 789,
         "linearizedBaseContracts": [
-          744
+          789
         ],
         "name": "IVault",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "functionSelector": "ff24b5d5",
-            "id": 697,
+            "id": 729,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getAllFiles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 691,
+              "id": 723,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "137:2:3"
             },
             "returnParameters": {
-              "id": 696,
+              "id": 728,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 695,
+                  "id": 727,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 697,
+                  "scope": 729,
                   "src": "162:13:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_File_$767_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_File_$814_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct File[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 693,
+                      "id": 725,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 692,
+                        "id": 724,
                         "name": "File",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 767,
+                        "referencedDeclaration": 814,
                         "src": "162:4:3"
                       },
-                      "referencedDeclaration": 767,
+                      "referencedDeclaration": 814,
                       "src": "162:4:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$767_storage_ptr",
+                        "typeIdentifier": "t_struct$_File_$814_storage_ptr",
                         "typeString": "struct File"
                       }
                     },
-                    "id": 694,
+                    "id": 726,
                     "nodeType": "ArrayTypeName",
                     "src": "162:6:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$767_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$814_storage_$dyn_storage_ptr",
                       "typeString": "struct File[]"
                     }
                   },
@@ -294,7 +337,7 @@
               ],
               "src": "161:15:3"
             },
-            "scope": 744,
+            "scope": 789,
             "src": "117:60:3",
             "stateMutability": "view",
             "virtual": false,
@@ -302,23 +345,23 @@
           },
           {
             "functionSelector": "d590e7ef",
-            "id": 708,
+            "id": 740,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "createFile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 706,
+              "id": 738,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 699,
+                  "id": 731,
                   "mutability": "mutable",
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 708,
+                  "scope": 740,
                   "src": "202:18:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -327,7 +370,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 698,
+                    "id": 730,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "202:6:3",
@@ -340,11 +383,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 701,
+                  "id": 733,
                   "mutability": "mutable",
                   "name": "fileType",
                   "nodeType": "VariableDeclaration",
-                  "scope": 708,
+                  "scope": 740,
                   "src": "222:22:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -353,7 +396,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 700,
+                    "id": 732,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "222:6:3",
@@ -366,11 +409,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 703,
+                  "id": 735,
                   "mutability": "mutable",
                   "name": "ipfsHash",
                   "nodeType": "VariableDeclaration",
-                  "scope": 708,
+                  "scope": 740,
                   "src": "246:22:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -379,7 +422,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 702,
+                    "id": 734,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "246:6:3",
@@ -392,11 +435,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 705,
+                  "id": 737,
                   "mutability": "mutable",
                   "name": "key",
                   "nodeType": "VariableDeclaration",
-                  "scope": 708,
+                  "scope": 740,
                   "src": "270:17:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -405,7 +448,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 704,
+                    "id": 736,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "270:6:3",
@@ -420,37 +463,37 @@
               "src": "201:87:3"
             },
             "returnParameters": {
-              "id": 707,
+              "id": 739,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "297:0:3"
             },
-            "scope": 744,
+            "scope": 789,
             "src": "182:116:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "a9910054",
-            "id": 713,
+            "functionSelector": "384e477d",
+            "id": 753,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
-            "name": "deleteFile",
+            "name": "addSharedFile",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 711,
+              "id": 751,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 710,
+                  "id": 742,
                   "mutability": "mutable",
-                  "name": "ipfsHash",
+                  "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 713,
-                  "src": "323:22:3",
+                  "scope": 753,
+                  "src": "326:18:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -458,10 +501,168 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 709,
+                    "id": 741,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "323:6:3",
+                    "src": "326:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 744,
+                  "mutability": "mutable",
+                  "name": "fileType",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 753,
+                  "src": "346:22:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 743,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "346:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 746,
+                  "mutability": "mutable",
+                  "name": "ipfsHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 753,
+                  "src": "370:22:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 745,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "370:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 748,
+                  "mutability": "mutable",
+                  "name": "key",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 753,
+                  "src": "394:17:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 747,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "394:6:3",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 750,
+                  "mutability": "mutable",
+                  "name": "sharedBy",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 753,
+                  "src": "413:16:3",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 749,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "413:7:3",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "325:105:3"
+            },
+            "returnParameters": {
+              "id": 752,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "439:0:3"
+            },
+            "scope": 789,
+            "src": "303:137:3",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "functionSelector": "a9910054",
+            "id": 758,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deleteFile",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 756,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 755,
+                  "mutability": "mutable",
+                  "name": "ipfsHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 758,
+                  "src": "465:22:3",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 754,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "465:6:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -470,40 +671,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "322:24:3"
+              "src": "464:24:3"
             },
             "returnParameters": {
-              "id": 712,
+              "id": 757,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "355:0:3"
+              "src": "497:0:3"
             },
-            "scope": 744,
-            "src": "303:53:3",
+            "scope": 789,
+            "src": "445:53:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "functionSelector": "1dd09eb0",
-            "id": 728,
+            "functionSelector": "ebd2251b",
+            "id": 773,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "migrateFiles",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 726,
+              "id": 771,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 715,
+                  "id": 760,
                   "mutability": "mutable",
                   "name": "_hashedMessage",
                   "nodeType": "VariableDeclaration",
-                  "scope": 728,
-                  "src": "383:22:3",
+                  "scope": 773,
+                  "src": "525:22:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -511,10 +712,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 714,
+                    "id": 759,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "383:7:3",
+                    "src": "525:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -524,12 +725,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 717,
+                  "id": 762,
                   "mutability": "mutable",
                   "name": "_v",
                   "nodeType": "VariableDeclaration",
-                  "scope": 728,
-                  "src": "407:8:3",
+                  "scope": 773,
+                  "src": "549:8:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -537,10 +738,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 716,
+                    "id": 761,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "407:5:3",
+                    "src": "549:5:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -550,12 +751,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 719,
+                  "id": 764,
                   "mutability": "mutable",
                   "name": "_r",
                   "nodeType": "VariableDeclaration",
-                  "scope": 728,
-                  "src": "417:10:3",
+                  "scope": 773,
+                  "src": "559:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -563,10 +764,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 718,
+                    "id": 763,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "417:7:3",
+                    "src": "559:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -576,12 +777,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 721,
+                  "id": 766,
                   "mutability": "mutable",
                   "name": "_s",
                   "nodeType": "VariableDeclaration",
-                  "scope": 728,
-                  "src": "429:10:3",
+                  "scope": 773,
+                  "src": "571:10:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -589,10 +790,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 720,
+                    "id": 765,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "429:7:3",
+                    "src": "571:7:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -602,87 +803,87 @@
                 },
                 {
                   "constant": false,
-                  "id": 725,
+                  "id": 770,
                   "mutability": "mutable",
                   "name": "_files",
                   "nodeType": "VariableDeclaration",
-                  "scope": 728,
-                  "src": "441:20:3",
+                  "scope": 773,
+                  "src": "583:20:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_File_$767_memory_ptr_$dyn_memory_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_File_$814_memory_ptr_$dyn_memory_ptr",
                     "typeString": "struct File[]"
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 723,
+                      "id": 768,
                       "nodeType": "UserDefinedTypeName",
                       "pathNode": {
-                        "id": 722,
+                        "id": 767,
                         "name": "File",
                         "nodeType": "IdentifierPath",
-                        "referencedDeclaration": 767,
-                        "src": "441:4:3"
+                        "referencedDeclaration": 814,
+                        "src": "583:4:3"
                       },
-                      "referencedDeclaration": 767,
-                      "src": "441:4:3",
+                      "referencedDeclaration": 814,
+                      "src": "583:4:3",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_File_$767_storage_ptr",
+                        "typeIdentifier": "t_struct$_File_$814_storage_ptr",
                         "typeString": "struct File"
                       }
                     },
-                    "id": 724,
+                    "id": 769,
                     "nodeType": "ArrayTypeName",
-                    "src": "441:6:3",
+                    "src": "583:6:3",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_File_$767_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_File_$814_storage_$dyn_storage_ptr",
                       "typeString": "struct File[]"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "382:80:3"
+              "src": "524:80:3"
             },
             "returnParameters": {
-              "id": 727,
+              "id": 772,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "471:0:3"
+              "src": "613:0:3"
             },
-            "scope": 744,
-            "src": "361:111:3",
+            "scope": 789,
+            "src": "503:111:3",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "893d20e8",
-            "id": 733,
+            "id": 778,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getOwner",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 729,
+              "id": 774,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "494:2:3"
+              "src": "636:2:3"
             },
             "returnParameters": {
-              "id": 732,
+              "id": 777,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 731,
+                  "id": 776,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 733,
-                  "src": "520:7:3",
+                  "scope": 778,
+                  "src": "662:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -690,10 +891,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 730,
+                    "id": 775,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "520:7:3",
+                    "src": "662:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -703,40 +904,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "519:9:3"
+              "src": "661:9:3"
             },
-            "scope": 744,
-            "src": "477:52:3",
+            "scope": 789,
+            "src": "619:52:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "0ee2cb10",
-            "id": 738,
+            "id": 783,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getCreator",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 734,
+              "id": 779,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "553:2:3"
+              "src": "695:2:3"
             },
             "returnParameters": {
-              "id": 737,
+              "id": 782,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 736,
+                  "id": 781,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 738,
-                  "src": "579:7:3",
+                  "scope": 783,
+                  "src": "721:7:3",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -744,10 +945,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 735,
+                    "id": 780,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "579:7:3",
+                    "src": "721:7:3",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -757,40 +958,40 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "578:9:3"
+              "src": "720:9:3"
             },
-            "scope": 744,
-            "src": "534:54:3",
+            "scope": 789,
+            "src": "676:54:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "functionSelector": "832880e7",
-            "id": 743,
+            "id": 788,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "getUser",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 739,
+              "id": 784,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "609:2:3"
+              "src": "751:2:3"
             },
             "returnParameters": {
-              "id": 742,
+              "id": 787,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 741,
+                  "id": 786,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 743,
-                  "src": "634:13:3",
+                  "scope": 788,
+                  "src": "776:13:3",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -798,10 +999,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 740,
+                    "id": 785,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "634:6:3",
+                    "src": "776:6:3",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -810,28 +1011,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "633:15:3"
+              "src": "775:15:3"
             },
-            "scope": 744,
-            "src": "593:56:3",
+            "scope": 789,
+            "src": "735:56:3",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 745,
-        "src": "94:557:3"
+        "scope": 790,
+        "src": "94:699:3"
       }
     ],
-    "src": "39:612:3"
+    "src": "39:754:3"
   },
   "compiler": {
     "name": "solc",
     "version": "0.8.0+commit.c7dfd78e.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.14",
-  "updatedAt": "2023-06-17T02:59:53.993Z",
+  "schemaVersion": "3.4.11",
+  "updatedAt": "2023-07-18T08:02:32.160Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},
