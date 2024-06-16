@@ -1,17 +1,19 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
-const JAN_1ST_2030 = 1893456000;
-const ONE_GWEI: bigint = 1_000_000_000n;
-
-const LockModule = buildModule("LockModule", (m) => {
-  const unlockTime = m.getParameter("unlockTime", JAN_1ST_2030);
-  const lockedAmount = m.getParameter("lockedAmount", ONE_GWEI);
-
-  const lock = m.contract("Lock", [unlockTime], {
-    value: lockedAmount,
+const VaultDeployerModule = buildModule("VaultDeployer", (m) => {
+  const fileManager = m.library("FileManager");
+  const vaultDeployer = m.contract("VaultDeployer", [], {
+    libraries: {
+      FileManager: fileManager,
+    }
   });
-
-  return { lock };
+  return { vaultDeployer };
 });
 
-export default LockModule;
+const PeerSafeDeployerModule = buildModule("PeerSafeDeployer", (m) => {
+  const vaultDeployer = m.getParameter("vaultDeployer");
+  const peerSafeDeployer = m.contract("PeerSafeDeployer", [vaultDeployer]);
+  return { peerSafeDeployer };
+});
+
+export { VaultDeployerModule, PeerSafeDeployerModule };
