@@ -82,6 +82,7 @@ export interface PeerSafeDeployerInterface extends Interface {
       | "getShareRequests"
       | "getVault"
       | "rejectShareRequest"
+      | "relayDeploy"
       | "sendShareRequest"
   ): FunctionFragment;
 
@@ -114,7 +115,7 @@ export interface PeerSafeDeployerInterface extends Interface {
   ): string;
   encodeFunctionData(
     functionFragment: "deploy",
-    values: [string, BytesLike, BigNumberish, BytesLike, BytesLike]
+    values: [string, BytesLike]
   ): string;
   encodeFunctionData(
     functionFragment: "getAllFiles",
@@ -140,6 +141,10 @@ export interface PeerSafeDeployerInterface extends Interface {
   encodeFunctionData(
     functionFragment: "rejectShareRequest",
     values: [BytesLike, BigNumberish, BytesLike, BytesLike, string]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "relayDeploy",
+    values: [string, BytesLike, BigNumberish, BytesLike, BytesLike, BytesLike]
   ): string;
   encodeFunctionData(
     functionFragment: "sendShareRequest",
@@ -181,6 +186,10 @@ export interface PeerSafeDeployerInterface extends Interface {
   decodeFunctionResult(functionFragment: "getVault", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "rejectShareRequest",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "relayDeploy",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -287,13 +296,7 @@ export interface PeerSafeDeployer extends BaseContract {
   >;
 
   deploy: TypedContractMethod<
-    [
-      _userName: string,
-      _hashedMessage: BytesLike,
-      _v: BigNumberish,
-      _r: BytesLike,
-      _s: BytesLike
-    ],
+    [_userName: string, pubKey: BytesLike],
     [string],
     "nonpayable"
   >;
@@ -327,6 +330,19 @@ export interface PeerSafeDeployer extends BaseContract {
       _fileHash: string
     ],
     [void],
+    "nonpayable"
+  >;
+
+  relayDeploy: TypedContractMethod<
+    [
+      _userName: string,
+      _hashedMessage: BytesLike,
+      _v: BigNumberish,
+      _r: BytesLike,
+      _s: BytesLike,
+      pubKey: BytesLike
+    ],
+    [string],
     "nonpayable"
   >;
 
@@ -398,13 +414,7 @@ export interface PeerSafeDeployer extends BaseContract {
   getFunction(
     nameOrSignature: "deploy"
   ): TypedContractMethod<
-    [
-      _userName: string,
-      _hashedMessage: BytesLike,
-      _v: BigNumberish,
-      _r: BytesLike,
-      _s: BytesLike
-    ],
+    [_userName: string, pubKey: BytesLike],
     [string],
     "nonpayable"
   >;
@@ -445,6 +455,20 @@ export interface PeerSafeDeployer extends BaseContract {
       _fileHash: string
     ],
     [void],
+    "nonpayable"
+  >;
+  getFunction(
+    nameOrSignature: "relayDeploy"
+  ): TypedContractMethod<
+    [
+      _userName: string,
+      _hashedMessage: BytesLike,
+      _v: BigNumberish,
+      _r: BytesLike,
+      _s: BytesLike,
+      pubKey: BytesLike
+    ],
+    [string],
     "nonpayable"
   >;
   getFunction(

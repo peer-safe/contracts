@@ -29,8 +29,15 @@ contract PeerSafeDeployer is Ownable {
         return address(_v);
     }
 
-    function deploy(string memory _userName, bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s) external returns(address) {
-        (address signer, bytes memory pubKey) = SECP256K1.recoverSignerAndPubKey(_hashedMessage, _v, _r, _s);
+    function deploy(string memory _userName, bytes memory pubKey) external returns(address) {
+        IVault _vault = IVault(IVaultDeployer(deployer).deploy(msg.sender, _userName));
+        users[msg.sender] = User(_vault, pubKey);
+        keys.push(msg.sender);
+        return address(_vault);
+    }
+
+    function relayDeploy(string memory _userName, bytes32 _hashedMessage, uint8 _v, bytes32 _r, bytes32 _s, bytes memory pubKey) external returns(address) {
+        (address signer,) = SECP256K1.recoverSignerAndPubKey(_hashedMessage, _v, _r, _s);
         IVault _vault = IVault(IVaultDeployer(deployer).deploy(signer, _userName));
         users[signer] = User(_vault, pubKey);
         keys.push(signer);
